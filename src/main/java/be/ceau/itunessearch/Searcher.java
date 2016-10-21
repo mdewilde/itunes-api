@@ -54,8 +54,9 @@ public class Searcher implements Serializable {
 	}
 
 	/**
-	 * Perform the search request. Return the response from iTunes.
+	 * Perform the search request.
 	 * 
+	 * @return parsed {@link Response} from iTunes
 	 * @throws IllegalArgumentException
 	 *             if argument null
 	 * @throws IllegalStateException
@@ -82,6 +83,7 @@ public class Searcher implements Serializable {
 	 * Equivalent to:<br>
 	 * {@code searcher.search(new Request(term));}
 	 * 
+	 * @return parsed {@link Response} from iTunes
 	 * @throws IllegalArgumentException
 	 *             if argument null
 	 * @throws IllegalStateException
@@ -89,6 +91,7 @@ public class Searcher implements Serializable {
 	 * @throws RuntimeException
 	 *             wrapping any IOException thrown performing the request or
 	 *             parsing the response
+	 * @see Searcher#search(Request)
 	 */
 	public Response search(String term) {
 		Request request = new Request(term);

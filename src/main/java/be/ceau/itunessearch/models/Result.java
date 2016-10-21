@@ -369,6 +369,26 @@ public class Result implements Serializable {
 		this.artworkUrl600 = artworkUrl600;
 	}
 
+	/**
+	 * @return the URL for the largest available artwork, or {@code null} if no
+	 *         artwork available
+	 */
+	public String getLargestArtworkUrl() {
+		if (artworkUrl600 != null) {
+			return artworkUrl600;
+		}
+		if (artworkUrl512 != null) {
+			return artworkUrl512;
+		}
+		if (artworkUrl100 != null) {
+			return artworkUrl100;
+		}
+		if (artworkUrl60 != null) {
+			return artworkUrl60;
+		}
+		return artworkUrl30;
+	}
+
 	public BigDecimal getPrice() {
 		return price;
 	}
