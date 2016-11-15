@@ -21,6 +21,7 @@ import java.io.Serializable;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 
+import be.ceau.itunessearch.models.Lookup;
 import be.ceau.itunessearch.models.Request;
 import be.ceau.itunessearch.models.Response;
 
@@ -44,7 +45,7 @@ public class Searcher implements Serializable {
 	 * implementation
 	 * 
 	 * @throws IllegalArgumentException
-	 *             if argument null
+	 *             if argument {@code null}
 	 */
 	public Searcher(Connector connector) {
 		if (connector == null) {
@@ -58,12 +59,12 @@ public class Searcher implements Serializable {
 	 * 
 	 * @return parsed {@link Response} from iTunes
 	 * @throws IllegalArgumentException
-	 *             if argument null
+	 *             if argument {@code null}
 	 * @throws IllegalStateException
 	 *             as thrown by {@link Request#build()}
 	 * @throws RuntimeException
-	 *             wrapping any IOException thrown performing the request or
-	 *             parsing the response
+	 *             wrapping any {@link IOException} thrown performing the
+	 *             request or parsing the response
 	 */
 	public Response search(Request request) {
 		if (request == null) {
@@ -85,12 +86,12 @@ public class Searcher implements Serializable {
 	 * 
 	 * @return parsed {@link Response} from iTunes
 	 * @throws IllegalArgumentException
-	 *             if argument null
+	 *             if argument {@code null}
 	 * @throws IllegalStateException
 	 *             as thrown by {@link Request#build()}
 	 * @throws RuntimeException
-	 *             wrapping any IOException thrown performing the request or
-	 *             parsing the response
+	 *             wrapping any {@link IOException} thrown performing the
+	 *             request or parsing the response
 	 * @see Searcher#search(Request)
 	 */
 	public Response search(String term) {
@@ -98,6 +99,14 @@ public class Searcher implements Serializable {
 		try {
 			String response = connector.get(request.build());
 			return reader.readValue(response);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public Response lookup(Lookup lookup) {
+		try {
+			String response = connector.get(lookup.build());
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
