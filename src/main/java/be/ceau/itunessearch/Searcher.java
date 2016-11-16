@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 
 import be.ceau.itunessearch.models.Lookup;
-import be.ceau.itunessearch.models.Request;
+import be.ceau.itunessearch.models.Search;
 import be.ceau.itunessearch.models.Response;
 
 public class Searcher implements Serializable {
@@ -61,12 +61,12 @@ public class Searcher implements Serializable {
 	 * @throws IllegalArgumentException
 	 *             if argument {@code null}
 	 * @throws IllegalStateException
-	 *             as thrown by {@link Request#build()}
+	 *             as thrown by {@link Search#build()}
 	 * @throws RuntimeException
 	 *             wrapping any {@link IOException} thrown performing the
 	 *             request or parsing the response
 	 */
-	public Response search(Request request) {
+	public Response search(Search request) {
 		if (request == null) {
 			throw new IllegalArgumentException("Request can not be null");
 		}
@@ -88,14 +88,14 @@ public class Searcher implements Serializable {
 	 * @throws IllegalArgumentException
 	 *             if argument {@code null}
 	 * @throws IllegalStateException
-	 *             as thrown by {@link Request#build()}
+	 *             as thrown by {@link Search#build()}
 	 * @throws RuntimeException
 	 *             wrapping any {@link IOException} thrown performing the
 	 *             request or parsing the response
-	 * @see Searcher#search(Request)
+	 * @see Searcher#search(Search)
 	 */
 	public Response search(String term) {
-		Request request = new Request(term);
+		Search request = new Search(term);
 		try {
 			String response = connector.get(request.build());
 			return reader.readValue(response);
@@ -107,6 +107,7 @@ public class Searcher implements Serializable {
 	public Response lookup(Lookup lookup) {
 		try {
 			String response = connector.get(lookup.build());
+			return reader.readValue(response);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

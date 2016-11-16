@@ -1,92 +1,177 @@
+/*
+	Copyright 2016 Marceau Dewilde <m@ceau.be>
+	
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+	
+		http://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+*/
 package be.ceau.itunessearch.models;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import be.ceau.itunessearch.enums.Entity;
 import be.ceau.itunessearch.enums.Sort;
 
+/**
+ * Request object for the iTunes <strong>lookup</strong> API.
+ */
 public class Lookup implements Serializable {
 
 	private static final long serialVersionUID = 1479238701182L;
 
 	private static final String API_ENDPOINT = "https://itunes.apple.com/lookup?";
 
-	private final Set<String> ids = new HashSet<String>();
-	private final Set<String> amgArtistIds = new HashSet<String>();
-	private final Set<String> amgAlbumIds = new HashSet<String>();
-	private final Set<String> amgVideoIds = new HashSet<String>();
-	private final Set<String> upcs = new HashSet<String>();
-	private final Set<String> isbns = new HashSet<String>();
+	private static final String ID = "id";
+	private static final String AMG_ARTIST_ID = "amgArtistId";
+	private static final String AMG_ALBUM_ID = "amgAlbumId";
+	private static final String AMG_VIDEO_ID = "amgVideoId";
+	private static final String UPC = "upc";
+	private static final String ISBN = "isbn";
 
+	private final Map<String, Set<String>> map;
 	private Entity entity;
 	private int limit;
 	private Sort sort;
+
+	public Lookup() {
+		Map<String, Set<String>> map = new HashMap<String, Set<String>>();
+		map.put(ID, new HashSet<String>());
+		map.put(AMG_ARTIST_ID, new HashSet<String>());
+		map.put(AMG_ALBUM_ID, new HashSet<String>());
+		map.put(AMG_VIDEO_ID, new HashSet<String>());
+		map.put(UPC, new HashSet<String>());
+		map.put(ISBN, new HashSet<String>());
+		this.map = Collections.unmodifiableMap(map);
+	}
 	
 	public Set<String> getIds() {
-		return ids;
+		return map.get(ID);
 	}
 
+	public void addId(String id) {
+		if (id != null) {
+			map.get(ID).add(id);
+		}
+	}
+	
 	public void setIds(Set<String> ids) {
-		this.ids.clear();
+		map.get(ID).clear();
 		if (ids != null) {
-			this.ids.addAll(ids);
+			for (String id : ids) {
+				addId(id);
+			}
 		}
 	}
 
 	public Set<String> getAmgArtistIds() {
-		return amgArtistIds;
+		return map.get(AMG_ARTIST_ID);
 	}
 
+	public void addAmgArtistId(String amgArtistId) {
+		if (amgArtistId != null) {
+			map.get(AMG_ARTIST_ID).add(amgArtistId);
+		}
+	}
+	
 	public void setAmgArtistIds(Set<String> amgArtistIds) {
-		this.amgArtistIds.clear();
+		map.get(AMG_ARTIST_ID).clear();
 		if (amgArtistIds != null) {
-			this.amgArtistIds.addAll(amgArtistIds);
+			for (String amgArtistId : amgArtistIds) {
+				addAmgArtistId(amgArtistId);
+			}
 		}
 	}
 
 	public Set<String> getAmgAlbumIds() {
-		return amgAlbumIds;
+		return map.get(AMG_ALBUM_ID);
+	}
+
+	public void addAmgAlbumId(String isbn) {
+		if (isbn != null) {
+			map.get(AMG_ALBUM_ID).add(isbn);
+		}
 	}
 
 	public void setAmgAlbumId(Set<String> amgAlbumIds) {
-		this.amgAlbumIds.clear();
+		map.get(AMG_ALBUM_ID).clear();
 		if (amgAlbumIds != null) {
-			this.amgAlbumIds.addAll(amgAlbumIds);
+			for (String amgAlbumId : amgAlbumIds) {
+				addAmgAlbumId(amgAlbumId);
+			}
 		}
 	}
 
 	public Set<String> getAmgVideoIds() {
-		return amgVideoIds;
+		return map.get(AMG_VIDEO_ID);
+	}
+
+	public void addAmgVideoId(String amgVideoId) {
+		if (amgVideoId != null) {
+			map.get(AMG_VIDEO_ID).add(amgVideoId);
+		}
 	}
 
 	public void setAmgVideoIds(Set<String> amgVideoIds) {
-		this.amgVideoIds.clear();
+		map.get(AMG_VIDEO_ID).clear();
 		if (amgVideoIds != null) {
-			this.amgVideoIds.addAll(amgVideoIds);
+			for (String amgVideoId : amgVideoIds) {
+				addAmgVideoId(amgVideoId);
+			}
 		}
 	}
 
 	public Set<String> getUpcs() {
-		return upcs;
+		return map.get(UPC);
+	}
+
+	public void addUpc(String upc) {
+		if (upc != null) {
+			map.get(UPC).add(upc);
+		}
 	}
 
 	public void setUpcs(Set<String> upcs) {
-		this.upcs.clear();
+		map.get(UPC).clear();
 		if (upcs != null) {
-			this.upcs.addAll(upcs);
+			for (String upc : upcs) {
+				addUpc(upc);
+			}
 		}
 	}
 
 	public Set<String> getIsbns() {
-		return isbns;
+		return map.get(ISBN);
+	}
+
+	public void addIsbn(String isbn) {
+		if (isbn != null) {
+			map.get(ISBN).add(isbn);
+		}
 	}
 
 	public void setIsbns(Set<String> isbns) {
-		this.isbns.clear();
+		map.get(ISBN).clear();
 		if (isbns != null) {
-			this.isbns.addAll(isbns);
+			for (String isbn : isbns) {
+				addIsbn(isbn);
+			}
 		}
 	}
 
@@ -120,80 +205,39 @@ public class Lookup implements Serializable {
 	 * @return full request URL matching this {@link Lookup}
 	 */
 	public String build() {
-		return new StringBuilder(API_ENDPOINT)
-					.append(idParam())
-					.append(amgArtistIdParam())
-					.append(amgAlbumIdParam())
-					.append(amgVideoIdParam())
-					.append(upcParam())
-					.append(isbnParam())
-					.append(entityParam())
-					.append(limitParam())
-					.append(sortParam())
-					.toString();
-	}
-
-	/**
-	 * @return "id=xxxx"
-	 */
-	private String idParam() {
-		return String.join(",", ids);
-	}
-	
-	/**
-	 * @return "&amgArtistId=XX" or empty string
-	 */
-	private String amgArtistIdParam() {
-		return String.join(",", amgArtistIds);
-	}
-
-	/**
-	 * @return "&amgAlbumId=XX" or empty string
-	 */
-	private String amgAlbumIdParam() {
-		return String.join(",", amgAlbumIds);
-	}
-
-	/**
-	 * @return "&amgVideoId=XX" or empty string
-	 */
-	private String amgVideoIdParam() {
-		return String.join(",", amgVideoIds);
-	}
-
-	/**
-	 * @return "&upc=XX" or empty string
-	 */
-	private String upcParam() {
-		return String.join(",", upcs);
-	}
-	
-	/**
-	 * @return "&isbn=XX" or empty string
-	 */
-	private String isbnParam() {
-		return String.join(",", isbns);
-	}
-
-	/**
-	 * @return "&entity=XX" or empty string
-	 */
-	private String entityParam() {
-		return String.join(",", ids);
-	}
-
-	/**
-	 * @return "&limit=XX" or empty string
-	 */
-	private String limitParam() {
-		return String.join(",", ids);
-	}
-
-	/**
-	 * @return "&sort=XX" or empty string
-	 */
-	private String sortParam() {
-		return String.join(",", ids);
+		StringBuilder sb = new StringBuilder();
+		for (Entry<String, Set<String>> entry : map.entrySet()) {
+			if (!entry.getValue().isEmpty()) {
+				if (sb.length() > 0) {
+					sb.append("&");
+				}
+				try {
+					String q = URLEncoder.encode(String.join(",", entry.getValue()), StandardCharsets.UTF_8.name());
+					sb.append(entry.getKey()).append("=").append(q);
+				} catch (UnsupportedEncodingException e) {
+					throw new IllegalStateException(e);
+				}
+			}
+		}
+		if (entity != null) {
+			if (sb.length() > 0) {
+				sb.append("&");
+			}
+			sb.append("entity").append("=").append(entity.getName());
+		}
+		if (limit > 0) {
+			if (sb.length() > 0) {
+				sb.append("&");
+			}
+			sb.append("limit").append("=").append(limit);
+		}
+		if (sort != null) {
+			if (sb.length() > 0) {
+				sb.append("&");
+			}
+			sb.append("sort").append("=").append(sort.toString());
+		}
+		return API_ENDPOINT + sb.toString();
 	}
 
 }

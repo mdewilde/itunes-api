@@ -21,14 +21,14 @@ import org.junit.Test;
 
 import be.ceau.itunessearch.enums.Country;
 import be.ceau.itunessearch.enums.Media;
-import be.ceau.itunessearch.models.Request;
+import be.ceau.itunessearch.models.Search;
 import be.ceau.itunessearch.models.Response;
 
 public class SearchTest {
 
 	@Test
 	public void searchPodcasts() {
-		Request request = new Request();
+		Search request = new Search();
 		request.setTerm("uhh yeah dude");
 		request.setCountry(Country.UNITED_STATES);
 		request.setMedia(Media.PODCAST);
@@ -42,7 +42,7 @@ public class SearchTest {
 	
 	@Test(expected = IllegalStateException.class)
 	public void emptyRequest() throws IOException {
-		Request request = new Request();
+		Search request = new Search();
 		System.out.println(request.build());
 		String response = new URLConnector().get(request.build());
 		System.out.println(response);
@@ -50,7 +50,7 @@ public class SearchTest {
 
 	@Test
 	public void connectorTest() throws IOException {
-		Request request = new Request();
+		Search request = new Search();
 		request.setTerm("north");
 		request.setCountry(Country.CANADA);
 		request.setMedia(Media.PODCAST);
@@ -61,7 +61,7 @@ public class SearchTest {
 	@Test
 	public void mediaTest() throws IOException {
 		for (Media media : Media.values()) {
-			Request request = new Request();
+			Search request = new Search();
 			request.setTerm("springsteen");
 			request.setCountry(Country.UNITED_STATES);
 			request.setMedia(media);
@@ -70,5 +70,5 @@ public class SearchTest {
 			System.out.println(response);
 		}
 	}
-
+	
 }

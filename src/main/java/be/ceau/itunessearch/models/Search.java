@@ -26,7 +26,10 @@ import be.ceau.itunessearch.enums.Entity;
 import be.ceau.itunessearch.enums.Lang;
 import be.ceau.itunessearch.enums.Media;
 
-public class Request implements Serializable {
+/**
+ * Request object for the iTunes <strong>search</strong> API.
+ */
+public class Search implements Serializable {
 
 	private static final long serialVersionUID = 1476515615735L;
 
@@ -42,11 +45,11 @@ public class Request implements Serializable {
 	private Integer version;
 	private Boolean explicit;
 
-	public Request() {
+	public Search() {
 		
 	}
-	
-	public Request(String term) {
+
+	public Search(String term) {
 		this.term = term;
 	}
 	
@@ -54,7 +57,7 @@ public class Request implements Serializable {
 		return term;
 	}
 
-	public Request setTerm(String term) {
+	public Search setTerm(String term) {
 		this.term = term;
 		return this;
 	}
@@ -63,7 +66,7 @@ public class Request implements Serializable {
 		return country;
 	}
 
-	public Request setCountry(Country country) {
+	public Search setCountry(Country country) {
 		this.country = country;
 		return this;
 	}
@@ -72,7 +75,7 @@ public class Request implements Serializable {
 		return media;
 	}
 
-	public Request setMedia(Media media) {
+	public Search setMedia(Media media) {
 		this.media = media;
 		return this;
 	}
@@ -81,7 +84,7 @@ public class Request implements Serializable {
 		return entity;
 	}
 
-	public Request setEntity(Entity entity) {
+	public Search setEntity(Entity entity) {
 		this.entity = entity;
 		return this;
 	}
@@ -90,7 +93,7 @@ public class Request implements Serializable {
 		return attribute;
 	}
 
-	public Request setAttribute(Attribute attribute) {
+	public Search setAttribute(Attribute attribute) {
 		this.attribute = attribute;
 		return this;
 	}
@@ -106,7 +109,7 @@ public class Request implements Serializable {
 	 * @param limit
 	 * @throws IllegalArgumentException if limit not valid
 	 */
-	public Request setLimit(int limit) {
+	public Search setLimit(int limit) {
 		if (limit < 1 || limit > 200) {
 			throw new IllegalArgumentException("limit must be between 1 and 200");
 		}
@@ -118,7 +121,7 @@ public class Request implements Serializable {
 		return lang;
 	}
 
-	public Request setLang(Lang lang) {
+	public Search setLang(Lang lang) {
 		this.lang = lang;
 		return this;
 	}
@@ -134,7 +137,7 @@ public class Request implements Serializable {
 	 * @param version
 	 * @throws IllegalArgumentException if version not valid
 	 */
-	public Request setVersion(int version) {
+	public Search setVersion(int version) {
 		if (version != 1 && version != 2) {
 			throw new IllegalArgumentException("version must be 1 or 2");
 		}
@@ -146,17 +149,17 @@ public class Request implements Serializable {
 		return explicit;
 	}
 
-	public Request setExplicit(boolean explicit) {
+	public Search setExplicit(boolean explicit) {
 		this.explicit = explicit;
 		return this;
 	}
 
 	/**
-	 * Create the request URL for this {@link Request}
+	 * Create the request URL for this {@link Search}
 	 * 
-	 * @return full request URL matching this {@link Request}
+	 * @return full request URL matching this {@link Search}
 	 * @throws IllegalStateException
-	 *             if no term is set in this {@link Request}
+	 *             if no term is set in this {@link Search}
 	 */
 	public String build() {
 		return new StringBuilder(API_ENDPOINT)
