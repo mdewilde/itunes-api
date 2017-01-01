@@ -20,6 +20,14 @@ YourConnector connector = new YourConnector();
 Searcher searcher = new Searcher(connector);
 ```
 
+To search directly using an iTunes id, AMG id, UPC or ISBN, the Lookup API is available:
+
+```Java
+Lookup lookup = new Lookup();
+lookup.addAmgArtistId("5505");
+Response response = new Searcher().lookup(lookup);
+```
+
 ### Maven Central
 Include this project directly from Maven Central
 ```XML
