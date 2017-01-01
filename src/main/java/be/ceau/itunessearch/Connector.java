@@ -26,12 +26,13 @@ import be.ceau.itunessearch.models.Search;
 public interface Connector {
 
 	/**
-	 * Perform an HTTP request. Return the response as String.
+	 * Perform an HTTP request. Return the response as {@link String}.
 	 * 
 	 * @param link
 	 *            the link, as output from {@link Search#build()}
-	 * @return iTunes response as string
+	 * @return iTunes response as {@link String}
 	 * @throws IOException
+	 *             if a problem occurred communicating with iTunes
 	 */
 	public String get(String link) throws IOException;
 

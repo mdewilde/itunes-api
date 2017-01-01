@@ -48,7 +48,7 @@ public class LookupTest {
 		for (Result result : response.getResults()) {
 			System.out.println(result.getCollectionName());
 		}
-		if (response == null || response.getResultCount() == 0) {
+		if (response.getResultCount() == 0) {
 			throw new IllegalArgumentException("no results");
 		}
 	}

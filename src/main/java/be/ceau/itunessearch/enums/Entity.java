@@ -16,9 +16,15 @@
 package be.ceau.itunessearch.enums;
 
 /**
+ * <p>
  * The type of results you want returned, relative to the specified media type.
- * For example: movieArtist for a movie media type search. The default is the
- * track entity associated with the specified media type.
+ * </p>
+ * <p>
+ * For example: {@code movieArtist} for a movie media type search.
+ * </p>
+ * <p>
+ * The default is the track entity associated with the specified media type.
+ * </p>
  */
 public enum Entity {
 

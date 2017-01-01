@@ -17,8 +17,7 @@ package be.ceau.itunessearch.enums;
 
 /**
  * The language, English or Japanese, you want to use when returning search
- * results. Specify the language using the five-letter codename. For example:
- * en_us.The default is en_us (English).
+ * results.
  */
 public enum Lang {
 

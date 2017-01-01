@@ -22,8 +22,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 
 import be.ceau.itunessearch.models.Lookup;
-import be.ceau.itunessearch.models.Search;
 import be.ceau.itunessearch.models.Response;
+import be.ceau.itunessearch.models.Search;
 
 public class Searcher implements Serializable {
 
@@ -44,6 +44,8 @@ public class Searcher implements Serializable {
 	 * Construct a new {@link Searcher} with custom {@link Connector}
 	 * implementation
 	 * 
+	 * @param connector
+	 *            {@link Connector} implementation, not {@code null}
 	 * @throws IllegalArgumentException
 	 *             if argument {@code null}
 	 */
@@ -57,6 +59,8 @@ public class Searcher implements Serializable {
 	/**
 	 * Perform the search request.
 	 * 
+	 * @param search
+	 *            {@link Search} instance, not {@code null}
 	 * @return parsed {@link Response} from iTunes
 	 * @throws IllegalArgumentException
 	 *             if argument {@code null}
@@ -66,12 +70,12 @@ public class Searcher implements Serializable {
 	 *             wrapping any {@link IOException} thrown performing the
 	 *             request or parsing the response
 	 */
-	public Response search(Search request) {
-		if (request == null) {
-			throw new IllegalArgumentException("Request can not be null");
+	public Response search(Search search) {
+		if (search == null) {
+			throw new IllegalArgumentException("search can not be null");
 		}
 		try {
-			String response = connector.get(request.build());
+			String response = connector.get(search.build());
 			return reader.readValue(response);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
@@ -80,10 +84,11 @@ public class Searcher implements Serializable {
 
 	/**
 	 * Convenience method to search for a specific term. Return the response
-	 * from iTunes. <br>
-	 * Equivalent to:<br>
-	 * {@code searcher.search(new Request(term));}
+	 * from iTunes.<br>
+	 * Equivalent to {@code searcher.search(new Search(term))}.
 	 * 
+	 * @param term
+	 *            the word or phrase to look for
 	 * @return parsed {@link Response} from iTunes
 	 * @throws IllegalArgumentException
 	 *             if argument {@code null}
@@ -104,7 +109,22 @@ public class Searcher implements Serializable {
 		}
 	}
 
+	/**
+	 * Perform the lookup request.
+	 * 
+	 * @param lookup
+	 *            {@link Lookup} instance, not {@code null}
+	 * @return parsed {@link Response} from iTunes
+	 * @throws IllegalArgumentException
+	 *             if argument {@code null}
+	 * @throws RuntimeException
+	 *             wrapping any {@link IOException} thrown performing the
+	 *             request or parsing the response
+	 */
 	public Response lookup(Lookup lookup) {
+		if (lookup == null) {
+			throw new IllegalArgumentException("lookup can not be null");
+		}
 		try {
 			String response = connector.get(lookup.build());
 			return reader.readValue(response);

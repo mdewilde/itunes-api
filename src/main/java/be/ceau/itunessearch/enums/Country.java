@@ -16,9 +16,9 @@
 package be.ceau.itunessearch.enums;
 
 /**
- * The two-letter country code for the store you want to search. The search uses
- * the default store front for the specified country. For example: US. The
- * default is US.
+ * <p>Enumeration of possible countries that have searchable stores.</p>
+ * 
+ * <p>The default is US.</p>
  */
 public enum Country {
 

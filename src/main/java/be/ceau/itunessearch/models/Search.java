@@ -27,7 +27,7 @@ import be.ceau.itunessearch.enums.Lang;
 import be.ceau.itunessearch.enums.Media;
 
 /**
- * Request object for the iTunes <strong>search</strong> API.
+ * Request object for the iTunes search API.
  */
 public class Search implements Serializable {
 
@@ -45,18 +45,34 @@ public class Search implements Serializable {
 	private Integer version;
 	private Boolean explicit;
 
+	/**
+	 * No-arg constructor.
+	 */
 	public Search() {
-		
+
 	}
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param term
+	 *            word or phrase to search for, {@link String}, can be
+	 *            {@code null}
+	 */
 	public Search(String term) {
 		this.term = term;
 	}
-	
+
 	public String getTerm() {
 		return term;
 	}
 
+	/**
+	 * @param term
+	 *            word or phrase to search for, {@link String}, can be
+	 *            {@code null}
+	 * @return {@code this} instance for method chaining
+	 */
 	public Search setTerm(String term) {
 		this.term = term;
 		return this;
@@ -66,6 +82,11 @@ public class Search implements Serializable {
 		return country;
 	}
 
+	/**
+	 * @param country
+	 *            {@link Country}, can be {@code null}
+	 * @return {@code this} instance for method chaining
+	 */
 	public Search setCountry(Country country) {
 		this.country = country;
 		return this;
@@ -75,6 +96,11 @@ public class Search implements Serializable {
 		return media;
 	}
 
+	/**
+	 * @param media
+	 *            {@link Media}, can be {@code null}
+	 * @return {@code this} instance for method chaining
+	 */
 	public Search setMedia(Media media) {
 		this.media = media;
 		return this;
@@ -84,6 +110,11 @@ public class Search implements Serializable {
 		return entity;
 	}
 
+	/**
+	 * @param entity
+	 *            {@link Entity}, can be {@code null}
+	 * @return {@code this} instance for method chaining
+	 */
 	public Search setEntity(Entity entity) {
 		this.entity = entity;
 		return this;
@@ -93,6 +124,11 @@ public class Search implements Serializable {
 		return attribute;
 	}
 
+	/**
+	 * @param attribute
+	 *            {@link Attribute}, can be {@code null}
+	 * @return {@code this} instance for method chaining
+	 */
 	public Search setAttribute(Attribute attribute) {
 		this.attribute = attribute;
 		return this;
@@ -107,7 +143,10 @@ public class Search implements Serializable {
 	 * example: 25. The default is 50. Valid between 1 and 200.
 	 * 
 	 * @param limit
-	 * @throws IllegalArgumentException if limit not valid
+	 *            {@code int} between 1 (inclusive) and 200 (inclusive)
+	 * @return {@code this} instance for method chaining
+	 * @throws IllegalArgumentException
+	 *             if limit not valid
 	 */
 	public Search setLimit(int limit) {
 		if (limit < 1 || limit > 200) {
@@ -121,6 +160,11 @@ public class Search implements Serializable {
 		return lang;
 	}
 
+	/**
+	 * @param lang
+	 *            {@link Lang}, can be {@code null}
+	 * @return {@code this} instance for method chaining
+	 */
 	public Search setLang(Lang lang) {
 		this.lang = lang;
 		return this;
@@ -131,11 +175,14 @@ public class Search implements Serializable {
 	}
 
 	/**
-	 * The search result key version you want to receive back from your
-	 * search. The default is 2. Valid are 1 or 2
+	 * The search result key version you want to receive back from your search.
+	 * The default is 2. Valid are 1 or 2
 	 * 
 	 * @param version
-	 * @throws IllegalArgumentException if version not valid
+	 *            {@code int} 1 or 2
+	 * @return {@code this} instance for method chaining
+	 * @throws IllegalArgumentException
+	 *             if version not valid
 	 */
 	public Search setVersion(int version) {
 		if (version != 1 && version != 2) {
@@ -149,6 +196,12 @@ public class Search implements Serializable {
 		return explicit;
 	}
 
+	/**
+	 * @param explicit
+	 *            {@code boolean} indicating whether or not to include explicit
+	 *            results
+	 * @return {@code this} instance for method chaining
+	 */
 	public Search setExplicit(boolean explicit) {
 		this.explicit = explicit;
 		return this;
@@ -163,21 +216,22 @@ public class Search implements Serializable {
 	 */
 	public String build() {
 		return new StringBuilder(API_ENDPOINT)
-					.append(termParam())
-					.append(countryParam())
-					.append(mediaParam())
-					.append(entityParam())
-					.append(attributeParam())
-					.append(limitParam())
-					.append(langParam())
-					.append(versionParam())
-					.append(explicitParam())
-					.toString();
+				.append(termParam())
+				.append(countryParam())
+				.append(mediaParam())
+				.append(entityParam())
+				.append(attributeParam())
+				.append(limitParam())
+				.append(langParam())
+				.append(versionParam())
+				.append(explicitParam())
+				.toString();
 	}
 
 	/**
 	 * @return "term=xxxx"
-	 * @throws IllegalStateException if term is empty or blank
+	 * @throws IllegalStateException
+	 *             if term is empty or blank
 	 */
 	private String termParam() {
 		if (term == null) {
@@ -194,7 +248,7 @@ public class Search implements Serializable {
 		}
 		return "term=" + t;
 	}
-	
+
 	/**
 	 * @return "&country=XX" or empty string
 	 */
@@ -234,7 +288,7 @@ public class Search implements Serializable {
 		}
 		return "";
 	}
-	
+
 	/**
 	 * @return "&limit=XX" or empty string
 	 */
@@ -270,13 +324,9 @@ public class Search implements Serializable {
 	 */
 	private String explicitParam() {
 		if (explicit != null) {
-			if (explicit) {
-				return "&explicit=Yes";
-			} else {
-				return "&explicit=No";
-			}
+			return explicit ? "&explicit=Yes" : "&explicit=No";
 		}
 		return "";
 	}
- 
+
 }

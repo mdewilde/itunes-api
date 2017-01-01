@@ -18,7 +18,6 @@ package be.ceau.itunessearch.models;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -200,9 +199,9 @@ public class Lookup implements Serializable {
 	}
 
 	/**
-	 * Create the request URL for this {@link Lookup}
+	 * Create the request url for this {@link Lookup}
 	 * 
-	 * @return full request URL matching this {@link Lookup}
+	 * @return full request url {@link String} matching this {@link Lookup}
 	 */
 	public String build() {
 		StringBuilder sb = new StringBuilder();
@@ -212,7 +211,7 @@ public class Lookup implements Serializable {
 					sb.append("&");
 				}
 				try {
-					String q = URLEncoder.encode(String.join(",", entry.getValue()), StandardCharsets.UTF_8.name());
+					String q = URLEncoder.encode(String.join(",", entry.getValue()), "UTF-8");
 					sb.append(entry.getKey()).append("=").append(q);
 				} catch (UnsupportedEncodingException e) {
 					throw new IllegalStateException(e);

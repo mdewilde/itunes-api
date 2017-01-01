@@ -16,13 +16,20 @@
 package be.ceau.itunessearch.enums;
 
 /**
- * The attribute you want to search for in thestores("stores"), relative to the specified
- * media type. Forexample("example"), if you want to search for an artist by name specify
- * entity=allArtist&attribute=allArtistTerm. In thisexample("example"), if you search for
- * term=maroon, iTunes returns “Maroon 5” in the searchresults("results"), instead of all
- * artists who have ever recorded a song with the word “maroon” in the title.
- * 
+ * <p>
+ * The attribute you want to search for in iTunes, relative to the specified
+ * media type.
+ * </p>
+ * <p>
+ * For example, if you want to search for an artist by name specify
+ * {@code entity=allArtist&attribute=allArtistTerm}. In this example, if you
+ * search for {@code term=maroon}, iTunes returns “Maroon 5” in the search
+ * results, instead of all artists who have ever recorded a song with the word
+ * “maroon” in the title.
+ * </p>
+ * <p>
  * The default is all attributes associated with the specified media type.
+ * </p>
  */
 public enum Attribute {
 

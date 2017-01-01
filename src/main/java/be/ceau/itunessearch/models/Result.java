@@ -21,6 +21,9 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * Single result in an iTunes response.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Result implements Serializable {
 
