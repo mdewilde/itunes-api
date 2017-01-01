@@ -29,7 +29,7 @@ import be.ceau.itunessearch.enums.Entity;
 import be.ceau.itunessearch.enums.Sort;
 
 /**
- * Request object for the iTunes <strong>lookup</strong> API.
+ * Request object for the iTunes lookup API.
  */
 public class Lookup implements Serializable {
 
@@ -49,6 +49,9 @@ public class Lookup implements Serializable {
 	private int limit;
 	private Sort sort;
 
+	/**
+	 * No-arg constructor.
+	 */
 	public Lookup() {
 		Map<String, Set<String>> map = new HashMap<String, Set<String>>();
 		map.put(ID, new HashSet<String>());
@@ -59,143 +62,242 @@ public class Lookup implements Serializable {
 		map.put(ISBN, new HashSet<String>());
 		this.map = Collections.unmodifiableMap(map);
 	}
-	
+
+	/**
+	 * @return modifiable {@link Set} containing all ids currently set in this
+	 *         {@link Lookup}, never {@code null}
+	 */
 	public Set<String> getIds() {
 		return map.get(ID);
 	}
 
-	public void addId(String id) {
+	/**
+	 * @param id
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup addId(String id) {
 		if (id != null) {
 			map.get(ID).add(id);
 		}
+		return this;
 	}
-	
-	public void setIds(Set<String> ids) {
+
+	/**
+	 * @param ids
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup setIds(Set<String> ids) {
 		map.get(ID).clear();
 		if (ids != null) {
 			for (String id : ids) {
 				addId(id);
 			}
 		}
+		return this;
 	}
 
+	/**
+	 * @return modifiable {@link Set} containing all AMG artist ids currently
+	 *         set in this {@link Lookup}, never {@code null}
+	 */
 	public Set<String> getAmgArtistIds() {
 		return map.get(AMG_ARTIST_ID);
 	}
 
-	public void addAmgArtistId(String amgArtistId) {
+	/**
+	 * @param amgArtistId
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup addAmgArtistId(String amgArtistId) {
 		if (amgArtistId != null) {
 			map.get(AMG_ARTIST_ID).add(amgArtistId);
 		}
+		return this;
 	}
-	
-	public void setAmgArtistIds(Set<String> amgArtistIds) {
+
+	/**
+	 * @param amgArtistIds
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup setAmgArtistIds(Set<String> amgArtistIds) {
 		map.get(AMG_ARTIST_ID).clear();
 		if (amgArtistIds != null) {
 			for (String amgArtistId : amgArtistIds) {
 				addAmgArtistId(amgArtistId);
 			}
 		}
+		return this;
 	}
 
+	/**
+	 * @return modifiable {@link Set} containing all AMG album ids currently
+	 *         set in this {@link Lookup}, never {@code null}
+	 */
 	public Set<String> getAmgAlbumIds() {
 		return map.get(AMG_ALBUM_ID);
 	}
 
-	public void addAmgAlbumId(String isbn) {
+	/**
+	 * @param isbn
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup addAmgAlbumId(String isbn) {
 		if (isbn != null) {
 			map.get(AMG_ALBUM_ID).add(isbn);
 		}
+		return this;
 	}
 
-	public void setAmgAlbumId(Set<String> amgAlbumIds) {
+	/**
+	 * @param amgAlbumIds
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup setAmgAlbumId(Set<String> amgAlbumIds) {
 		map.get(AMG_ALBUM_ID).clear();
 		if (amgAlbumIds != null) {
 			for (String amgAlbumId : amgAlbumIds) {
 				addAmgAlbumId(amgAlbumId);
 			}
 		}
+		return this;
 	}
 
+	/**
+	 * @return modifiable {@link Set} containing all AMG video ids currently
+	 *         set in this {@link Lookup}, never {@code null}
+	 */
 	public Set<String> getAmgVideoIds() {
 		return map.get(AMG_VIDEO_ID);
 	}
 
-	public void addAmgVideoId(String amgVideoId) {
+	/**
+	 * @param amgVideoId
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup addAmgVideoId(String amgVideoId) {
 		if (amgVideoId != null) {
 			map.get(AMG_VIDEO_ID).add(amgVideoId);
 		}
+		return this;
 	}
 
-	public void setAmgVideoIds(Set<String> amgVideoIds) {
+	/**
+	 * @param amgVideoIds
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup setAmgVideoIds(Set<String> amgVideoIds) {
 		map.get(AMG_VIDEO_ID).clear();
 		if (amgVideoIds != null) {
 			for (String amgVideoId : amgVideoIds) {
 				addAmgVideoId(amgVideoId);
 			}
 		}
+		return this;
 	}
 
+	/**
+	 * @return modifiable {@link Set} containing all UPCs currently
+	 *         set in this {@link Lookup}, never {@code null}
+	 */
 	public Set<String> getUpcs() {
 		return map.get(UPC);
 	}
 
-	public void addUpc(String upc) {
+	/**
+	 * @param upc
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup addUpc(String upc) {
 		if (upc != null) {
 			map.get(UPC).add(upc);
 		}
+		return this;
 	}
 
-	public void setUpcs(Set<String> upcs) {
+	/**
+	 * @param upcs
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup setUpcs(Set<String> upcs) {
 		map.get(UPC).clear();
 		if (upcs != null) {
 			for (String upc : upcs) {
 				addUpc(upc);
 			}
 		}
+		return this;
 	}
 
+	/**
+	 * @return modifiable {@link Set} containing all ISBNs currently
+	 *         set in this {@link Lookup}, never {@code null}
+	 */
 	public Set<String> getIsbns() {
 		return map.get(ISBN);
 	}
 
-	public void addIsbn(String isbn) {
+	/**
+	 * @param isbn
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup addIsbn(String isbn) {
 		if (isbn != null) {
 			map.get(ISBN).add(isbn);
 		}
+		return this;
 	}
 
-	public void setIsbns(Set<String> isbns) {
+	/**
+	 * @param isbns
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup setIsbns(Set<String> isbns) {
 		map.get(ISBN).clear();
 		if (isbns != null) {
 			for (String isbn : isbns) {
 				addIsbn(isbn);
 			}
 		}
+		return this;
 	}
 
 	public Entity getEntity() {
 		return entity;
 	}
 
-	public void setEntity(Entity entity) {
+	/**
+	 * @param entity
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup setEntity(Entity entity) {
 		this.entity = entity;
+		return this;
 	}
 
 	public int getLimit() {
 		return limit;
 	}
 
-	public void setLimit(int limit) {
+	/**
+	 * @param limit
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup setLimit(int limit) {
 		this.limit = limit;
+		return this;
 	}
 
 	public Sort getSort() {
 		return sort;
 	}
 
-	public void setSort(Sort sort) {
+	/**
+	 * @param sort
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup setSort(Sort sort) {
 		this.sort = sort;
+		return this;
 	}
 
 	/**
