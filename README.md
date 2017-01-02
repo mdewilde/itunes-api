@@ -2,6 +2,7 @@
 
 ![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/itunes-search/badge.svg)
 
+[![Javadocs](https://javadoc.io/badge/be.ceau/itunes-search.svg)](https://javadoc.io/doc/be.ceau/itunes-search)
 
 Java client for the [iTunes Search API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
 
@@ -38,6 +39,9 @@ Include this project directly from Maven Central
 
 ### GnuPG public key
 Verify signature files with my [GnuPG public key](https://www.ceau.be/pubkey.gpg).
+
+### Javadoc
+View javadoc for current release at [javadoc.io](https://javadoc.io/doc/be.ceau/itunes-search).
 
 ### License
 Licensed under [the Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.txt).
