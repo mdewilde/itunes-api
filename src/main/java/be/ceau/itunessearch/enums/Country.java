@@ -16,9 +16,12 @@
 package be.ceau.itunessearch.enums;
 
 /**
- * <p>Enumeration of possible countries that have searchable stores.</p>
- * 
- * <p>The default is US.</p>
+ * <p>
+ * Enumeration of possible countries that have searchable stores.
+ * </p>
+ * <p>
+ * iTunes default is US.
+ * </p>
  */
 public enum Country {
 

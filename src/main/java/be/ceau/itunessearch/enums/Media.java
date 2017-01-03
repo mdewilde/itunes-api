@@ -20,8 +20,12 @@ import java.util.EnumSet;
 import java.util.Set;
 
 /**
- * The media type you want to search for. For example: movie. The default is
- * all.
+ * <p>
+ * The media type you want to search for. For example: movie.
+ * </p>
+ * <p>
+ * iTunes default is all.
+ * </p>
  */
 public enum Media {
 

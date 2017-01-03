@@ -16,8 +16,10 @@
 package be.ceau.itunessearch.enums;
 
 /**
+ * <p>
  * The language, English or Japanese, you want to use when returning search
  * results.
+ * </p>
  */
 public enum Lang {
 

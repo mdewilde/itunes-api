@@ -18,14 +18,16 @@ package be.ceau.itunessearch.enums;
 import java.util.Locale;
 
 /**
- * Sort order for results in the iTunes response.
+ * <p>
+ * Sort order for results in an iTunes response.
+ * </p>
  */
 public enum Sort {
 
-	POPULAR,
-	RECENT;
-	
+	POPULAR, RECENT;
+
 	private final String string;
+
 	private Sort() {
 		this.string = name().toLowerCase(Locale.ENGLISH);
 	}

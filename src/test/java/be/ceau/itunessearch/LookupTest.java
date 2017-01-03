@@ -15,42 +15,26 @@
 */
 package be.ceau.itunessearch;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import be.ceau.itunessearch.enums.Entity;
-import be.ceau.itunessearch.models.Lookup;
-import be.ceau.itunessearch.models.Response;
-import be.ceau.itunessearch.models.Result;
 
 public class LookupTest {
 
 	@Test
-	public void lookup() {
-		Lookup lookup = new Lookup();
-		lookup.addId("124043755");
-		Searcher searcher = new Searcher();
-		Response response = searcher.lookup(lookup);
-		System.out.println(response);
-		if (response == null || response.getResultCount() == 0) {
-			throw new IllegalArgumentException("no results");
-		}
+	public void idsIsNotNull() {
+		Assert.assertNotNull(new Lookup().getIds());
 	}
-	
+
 	@Test
 	public void albums() {
-		Lookup lookup = new Lookup();
-		lookup.addId("178834");
-		lookup.setEntity(Entity.ALBUM);
-		Searcher searcher = new Searcher();
-		Response response = searcher.lookup(lookup);
-		System.out.println(response);
-		
-		for (Result result : response.getResults()) {
-			System.out.println(result.getCollectionName());
-		}
-		if (response.getResultCount() == 0) {
-			throw new IllegalArgumentException("no results");
-		}
+		Response response = new Lookup()
+			.addId("178834")
+			.setEntity(Entity.ALBUM)
+			.execute();
+		Assert.assertTrue(response.getResultCount() > 0);
+		Assert.assertEquals(response.getResults().size(), response.getResultCount());
 	}
-	
+
 }

@@ -28,7 +28,7 @@ package be.ceau.itunessearch.enums;
  * “maroon” in the title.
  * </p>
  * <p>
- * The default is all attributes associated with the specified media type.
+ * iTunes default is all attributes associated with the specified media type.
  * </p>
  */
 public enum Attribute {

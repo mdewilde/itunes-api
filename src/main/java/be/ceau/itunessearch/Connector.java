@@ -17,11 +17,11 @@ package be.ceau.itunessearch;
 
 import java.io.IOException;
 
-import be.ceau.itunessearch.models.Search;
-
 /**
  * Interface to implement HTTP connection behavior between the library and
  * iTunes.
+ * 
+ * @see URLConnector
  */
 public interface Connector {
 
@@ -30,7 +30,7 @@ public interface Connector {
 	 * 
 	 * @param link
 	 *            the link, as output from {@link Search#build()}
-	 * @return iTunes response as {@link String}
+	 * @return iTunes response as {@link String}, never {@code null}
 	 * @throws IOException
 	 *             if a problem occurred communicating with iTunes
 	 */

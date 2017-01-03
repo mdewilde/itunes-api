@@ -17,45 +17,47 @@ package be.ceau.itunessearch;
 
 import java.io.IOException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import be.ceau.itunessearch.enums.Country;
 import be.ceau.itunessearch.enums.Media;
-import be.ceau.itunessearch.models.Search;
-import be.ceau.itunessearch.models.Response;
 
 public class SearchTest {
 
+	/**
+	 * Find podcast Uhh Yeah Dude
+	 */
 	@Test
 	public void searchPodcasts() {
-		Search request = new Search();
-		request.setTerm("uhh yeah dude");
-		request.setCountry(Country.UNITED_STATES);
-		request.setMedia(Media.PODCAST);
-		Searcher searcher = new Searcher();
-		Response response = searcher.search(request);
-		System.out.println(response);
-		if (response == null || response.getResultCount() == 0) {
-			throw new IllegalArgumentException("no results");
-		}
+		Response response = 
+				new Search("uhh yeah dude")
+				.setCountry(Country.UNITED_STATES)
+				.setMedia(Media.PODCAST)
+				.execute();
+		Assert.assertNotNull(response);
+		Assert.assertTrue(response.getResultCount() > 0);
+		Assert.assertNotNull(response.getResults());
 	}
-	
+
+	/**
+	 * A term must be set before searching
+	 */
 	@Test(expected = IllegalStateException.class)
-	public void emptyRequest() throws IOException {
-		Search request = new Search();
-		System.out.println(request.build());
-		String response = new URLConnector().get(request.build());
-		System.out.println(response);
+	public void emptyRequest() {
+		new Search().build();
 	}
 
 	@Test
 	public void connectorTest() throws IOException {
-		Search request = new Search();
-		request.setTerm("north");
-		request.setCountry(Country.CANADA);
-		request.setMedia(Media.PODCAST);
-		String response = new URLConnector().get(request.build());
-		System.out.println(response);
+		String request = new Search().setTerm("north").setCountry(Country.CANADA).setMedia(Media.PODCAST).build();
+		String response = new URLConnector().get(request);
+		Assert.assertNotNull(response);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void connectorNotNull() {
+		new Search().setTerm("north").setCountry(Country.CANADA).setMedia(Media.PODCAST).execute(null);
 	}
 
 	@Test
@@ -65,10 +67,25 @@ public class SearchTest {
 			request.setTerm("springsteen");
 			request.setCountry(Country.UNITED_STATES);
 			request.setMedia(media);
-			request.setLimit(4);
+			request.setLimit(2);
 			String response = new URLConnector().get(request.build());
-			System.out.println(response);
+			Assert.assertNotNull(response);
 		}
+	}
+
+	@Test
+	public void emptyCollectionsNotNull() throws IOException {
+		Result result = new Result();
+		result.getAdvisories().isEmpty();
+		result.getGenreIds().isEmpty();
+		result.getGenres().isEmpty();
+		result.getIpadScreenshotUrls().isEmpty();
+		result.getAppletvScreenshotUrls().isEmpty();
+		result.getFeatures().isEmpty();
+		result.getSupportedDevices().isEmpty();
+		result.getAdvisories().isEmpty();
+		result.getScreenshotUrls().isEmpty();
+		result.getLanguageCodesISO2A().isEmpty();
 	}
 	
 }

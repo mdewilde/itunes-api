@@ -13,8 +13,9 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.itunessearch.models;
+package be.ceau.itunessearch;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -63,6 +64,50 @@ public class Search implements Serializable {
 		this.term = term;
 	}
 
+	/**
+	 * Execute this iTunes Search API request.
+	 * 
+	 * @return parsed {@link Response} from iTunes
+	 * @throws IllegalStateException
+	 *             as thrown by {@link #build()}
+	 * @throws RuntimeException
+	 *             wrapping any {@link IOException} thrown performing the
+	 *             request or parsing the response
+	 */
+	public Response execute() {
+		return execute(URLConnector.INSTANCE);
+	}
+
+	/**
+	 * Execute this iTunes Search API request using the provided
+	 * {@link Connector} implementation.
+	 * 
+	 * @param connector
+	 *            {@link Connector} implementation, not {@code null}
+	 * @return parsed {@link Response} from iTunes
+	 * @throws IllegalArgumentException
+	 *             if argument {@code null}
+	 * @throws IllegalStateException
+	 *             as thrown by {@link #build()}
+	 * @throws RuntimeException
+	 *             wrapping any {@link IOException} thrown performing the
+	 *             request or parsing the response
+	 */
+	public Response execute(Connector connector) {
+		if (connector == null) {
+			throw new IllegalArgumentException("connector can not be null");
+		}
+		try {
+			String response = connector.get(build());
+			return Response.READER.readValue(response);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
+	 * @return {@link String} instance, or {@code null}
+	 */
 	public String getTerm() {
 		return term;
 	}
@@ -78,6 +123,9 @@ public class Search implements Serializable {
 		return this;
 	}
 
+	/**
+	 * @return {@link Country} instance, or {@code null}
+	 */
 	public Country getCountry() {
 		return country;
 	}
@@ -92,6 +140,9 @@ public class Search implements Serializable {
 		return this;
 	}
 
+	/**
+	 * @return {@link Media} instance, or {@code null}
+	 */
 	public Media getMedia() {
 		return media;
 	}
@@ -106,6 +157,9 @@ public class Search implements Serializable {
 		return this;
 	}
 
+	/**
+	 * @return {@link Entity} instance, or {@code null}
+	 */
 	public Entity getEntity() {
 		return entity;
 	}
@@ -120,6 +174,9 @@ public class Search implements Serializable {
 		return this;
 	}
 
+	/**
+	 * @return {@link Attribute} instance, or {@code null}
+	 */
 	public Attribute getAttribute() {
 		return attribute;
 	}
@@ -134,7 +191,10 @@ public class Search implements Serializable {
 		return this;
 	}
 
-	public int getLimit() {
+	/**
+	 * @return {@link Integer} instance, or {@code null}
+	 */
+	public Integer getLimit() {
 		return limit;
 	}
 
@@ -156,6 +216,9 @@ public class Search implements Serializable {
 		return this;
 	}
 
+	/**
+	 * @return {@link Lang} instance, or {@code null}
+	 */
 	public Lang getLang() {
 		return lang;
 	}
@@ -170,7 +233,10 @@ public class Search implements Serializable {
 		return this;
 	}
 
-	public int getVersion() {
+	/**
+	 * @return {@link Integer} instance, or {@code null}
+	 */
+	public Integer getVersion() {
 		return version;
 	}
 
@@ -192,7 +258,10 @@ public class Search implements Serializable {
 		return this;
 	}
 
-	public boolean isExplicit() {
+	/**
+	 * @return {@link Boolean} instance, or {@code null}
+	 */
+	public Boolean isExplicit() {
 		return explicit;
 	}
 
@@ -215,17 +284,9 @@ public class Search implements Serializable {
 	 *             if no term is set in this {@link Search}
 	 */
 	public String build() {
-		return new StringBuilder(API_ENDPOINT)
-				.append(termParam())
-				.append(countryParam())
-				.append(mediaParam())
-				.append(entityParam())
-				.append(attributeParam())
-				.append(limitParam())
-				.append(langParam())
-				.append(versionParam())
-				.append(explicitParam())
-				.toString();
+		return new StringBuilder(API_ENDPOINT).append(termParam()).append(countryParam()).append(mediaParam())
+				.append(entityParam()).append(attributeParam()).append(limitParam()).append(langParam())
+				.append(versionParam()).append(explicitParam()).toString();
 	}
 
 	/**
@@ -250,7 +311,7 @@ public class Search implements Serializable {
 	}
 
 	/**
-	 * @return "&country=XX" or empty string
+	 * @return "&country=XX" or empty {@link String}
 	 */
 	private String countryParam() {
 		if (country != null) {
@@ -260,7 +321,7 @@ public class Search implements Serializable {
 	}
 
 	/**
-	 * @return "&media=XX" or empty string
+	 * @return "&media=XX" or empty {@link String}
 	 */
 	private String mediaParam() {
 		if (media != null) {
@@ -270,7 +331,7 @@ public class Search implements Serializable {
 	}
 
 	/**
-	 * @return "&entity=XX" or empty string
+	 * @return "&entity=XX" or empty {@link String}
 	 */
 	private String entityParam() {
 		if (entity != null) {
@@ -280,7 +341,7 @@ public class Search implements Serializable {
 	}
 
 	/**
-	 * @return "&attribute=XX" or empty string
+	 * @return "&attribute=XX" or empty {@link String}
 	 */
 	private String attributeParam() {
 		if (attribute != null) {
@@ -290,7 +351,7 @@ public class Search implements Serializable {
 	}
 
 	/**
-	 * @return "&limit=XX" or empty string
+	 * @return "&limit=XX" or empty {@link String}
 	 */
 	private String limitParam() {
 		if (limit != null) {
@@ -300,7 +361,7 @@ public class Search implements Serializable {
 	}
 
 	/**
-	 * @return "&lang=XX" or empty string
+	 * @return "&lang=XX" or empty {@link String}
 	 */
 	private String langParam() {
 		if (lang != null) {
@@ -310,7 +371,7 @@ public class Search implements Serializable {
 	}
 
 	/**
-	 * @return "&version=XX" or empty string
+	 * @return "&version=XX" or empty {@link String}
 	 */
 	private String versionParam() {
 		if (version != null) {
@@ -320,7 +381,7 @@ public class Search implements Serializable {
 	}
 
 	/**
-	 * @return "&explicit=XX" or empty string
+	 * @return "&explicit=XX" or empty {@link String}
 	 */
 	private String explicitParam() {
 		if (explicit != null) {

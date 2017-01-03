@@ -13,16 +13,18 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.itunessearch.models;
+package be.ceau.itunessearch;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * Single result in an iTunes response.
+ * Single result in an iTunes {@link Response}.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Result implements Serializable {
@@ -94,18 +96,21 @@ public class Result implements Serializable {
 	private String longDescription;
 	private String description;
 
-	private List<String> genreIds;
-	private List<String> genres;
+	private final Set<String> genreIds = new HashSet<String>();
+	private final Set<String> genres = new HashSet<String>();
 
-	private List<String> ipadScreenshotUrls;
-	private List<String> appletvScreenshotUrls;
-	private List<String> features;
-	private List<String> supportedDevices;
-	private List<String> advisories;
-	private List<String> screenshotUrls;
+	private final Set<String> ipadScreenshotUrls = new HashSet<String>();
+	private final Set<String> appletvScreenshotUrls = new HashSet<String>();
+	private final Set<String> features = new HashSet<String>();
+	private final Set<String> supportedDevices = new HashSet<String>();
+	private final Set<String> advisories = new HashSet<String>();
+	private final Set<String> screenshotUrls = new HashSet<String>();
+
 	private Boolean isGameCenterEnabled;
 	private Integer averageUserRatingForCurrentVersion;
-	private List<String> languageCodesISO2A;
+	
+	private final Set<String> languageCodesISO2A = new HashSet<String>();
+
 	private Long fileSizeBytes;
 	private Integer userRatingCountForCurrentVersion;
 	private String trackContentRating;
@@ -618,68 +623,116 @@ public class Result implements Serializable {
 		this.description = description;
 	}
 
-	public List<String> getGenreIds() {
+	/**
+	 * @return modifiable {@link Set}, never {@code null}
+	 */
+	public Set<String> getGenreIds() {
 		return genreIds;
 	}
 
-	public void setGenreIds(List<String> genreIds) {
-		this.genreIds = genreIds;
+	public void setGenreIds(Collection<String> genreIds) {
+		this.genreIds.clear();
+		if (genreIds != null) {
+			this.genreIds.addAll(genreIds);
+		}
 	}
 
-	public List<String> getGenres() {
+	/**
+	 * @return modifiable {@link Set}, never {@code null}
+	 */
+	public Set<String> getGenres() {
 		return genres;
 	}
 
-	public void setGenres(List<String> genres) {
-		this.genres = genres;
+	public void setGenres(Collection<String> genres) {
+		this.genres.clear();
+		if (genres != null) {
+			this.genres.addAll(genres);
+		}
 	}
 
-	public List<String> getIpadScreenshotUrls() {
+	/**
+	 * @return modifiable {@link Set}, never {@code null}
+	 */
+	public Set<String> getIpadScreenshotUrls() {
 		return ipadScreenshotUrls;
 	}
 
-	public void setIpadScreenshotUrls(List<String> ipadScreenshotUrls) {
-		this.ipadScreenshotUrls = ipadScreenshotUrls;
+	public void setIpadScreenshotUrls(Collection<String> ipadScreenshotUrls) {
+		this.ipadScreenshotUrls.clear();
+		if (ipadScreenshotUrls != null) {
+			this.ipadScreenshotUrls.addAll(ipadScreenshotUrls);
+		}
 	}
 
-	public List<String> getAppletvScreenshotUrls() {
+	/**
+	 * @return modifiable {@link Set}, never {@code null}
+	 */
+	public Set<String> getAppletvScreenshotUrls() {
 		return appletvScreenshotUrls;
 	}
 
-	public void setAppletvScreenshotUrls(List<String> appletvScreenshotUrls) {
-		this.appletvScreenshotUrls = appletvScreenshotUrls;
+	public void setAppletvScreenshotUrls(Collection<String> appletvScreenshotUrls) {
+		this.appletvScreenshotUrls.clear();
+		if (appletvScreenshotUrls != null) {
+			this.appletvScreenshotUrls.addAll(appletvScreenshotUrls);
+		}
 	}
 
-	public List<String> getFeatures() {
+	/**
+	 * @return modifiable {@link Set}, never {@code null}
+	 */
+	public Set<String> getFeatures() {
 		return features;
 	}
 
-	public void setFeatures(List<String> features) {
-		this.features = features;
+	public void setFeatures(Collection<String> features) {
+		this.features.clear();
+		if (features != null) {
+			this.features.addAll(features);
+		}
 	}
 
-	public List<String> getSupportedDevices() {
+	/**
+	 * @return modifiable {@link Set}, never {@code null}
+	 */
+	public Set<String> getSupportedDevices() {
 		return supportedDevices;
 	}
 
-	public void setSupportedDevices(List<String> supportedDevices) {
-		this.supportedDevices = supportedDevices;
+	public void setSupportedDevices(Collection<String> supportedDevices) {
+		this.supportedDevices.clear();
+		if (supportedDevices != null) {
+			this.supportedDevices.addAll(supportedDevices);
+		}
 	}
 
-	public List<String> getAdvisories() {
+	/**
+	 * @return modifiable {@link Set}, never {@code null}
+	 */
+	public Set<String> getAdvisories() {
 		return advisories;
 	}
 
-	public void setAdvisories(List<String> advisories) {
-		this.advisories = advisories;
+	public void setAdvisories(Collection<String> advisories) {
+		this.advisories.clear();
+		if (advisories != null) {
+			this.advisories.addAll(advisories);
+		}
 	}
 
-	public List<String> getScreenshotUrls() {
+	/**
+	 * @return modifiable {@link Set}, never {@code null}
+	 */
+	public Set<String> getScreenshotUrls() {
 		return screenshotUrls;
 	}
 
-	public void setScreenshotUrls(List<String> screenshotUrls) {
-		this.screenshotUrls = screenshotUrls;
+	public void setScreenshotUrls(Collection<String> screenshotUrls) {
+		this.screenshotUrls.clear();
+		if (screenshotUrls != null) {
+			this.screenshotUrls.addAll(screenshotUrls);
+		}
 	}
 
 	public Boolean getIsGameCenterEnabled() {
@@ -698,12 +751,18 @@ public class Result implements Serializable {
 		this.averageUserRatingForCurrentVersion = averageUserRatingForCurrentVersion;
 	}
 
-	public List<String> getLanguageCodesISO2A() {
+	/**
+	 * @return modifiable {@link Set}, never {@code null}
+	 */
+	public Set<String> getLanguageCodesISO2A() {
 		return languageCodesISO2A;
 	}
 
-	public void setLanguageCodesISO2A(List<String> languageCodesISO2A) {
-		this.languageCodesISO2A = languageCodesISO2A;
+	public void setLanguageCodesISO2A(Collection<String> languageCodesISO2A) {
+		this.languageCodesISO2A.clear();
+		if (languageCodesISO2A != null) {
+			this.languageCodesISO2A.addAll(languageCodesISO2A);
+		}
 	}
 
 	public Long getFileSizeBytes() {

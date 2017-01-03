@@ -1,8 +1,6 @@
 #iTunes Search
 
-![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/itunes-search/badge.svg)
-
-[![Javadocs](https://javadoc.io/badge/be.ceau/itunes-search.svg)](https://javadoc.io/doc/be.ceau/itunes-search)
+![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/itunes-search/badge.svg) [![Javadocs](https://javadoc.io/badge/be.ceau/itunes-search.svg)](https://javadoc.io/doc/be.ceau/itunes-search)
 
 Java client for the [iTunes Search API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
 
@@ -10,23 +8,21 @@ Java client for the [iTunes Search API](https://affiliate.itunes.apple.com/resou
 ### Usage
 
 ```Java
-Request request = new Request("ceau");
-Response response = new Searcher().search(request);
+Response response = new Search("ceau").execute();
 ```
 
-iTunes Search allows specifying your own logic to perform HTTP requests. To do so, simply implement the `be.ceau.itunessearch.Connector` interface and construct a new `be.ceau.itunessearch.Searcher` with that implementation.
+iTunes Search allows specifying your own logic to perform HTTP requests. To do so, simply implement the `be.ceau.itunessearch.Connector` interface and pass an instance to the execute method of a `be.ceau.itunessearch.Search` or `be.ceau.itunessearch.Lookup` instance.
 
 ```Java
-YourConnector connector = new YourConnector();
-Searcher searcher = new Searcher(connector);
+Response response = new Search("ceau").execute(new YourConnectorImpl());
 ```
 
-To search directly using an iTunes id, AMG id, UPC or ISBN, the Lookup API is available:
+To search directly using an iTunes id, All Music id, UPC or ISBN, the Lookup API is also available:
 
 ```Java
-Lookup lookup = new Lookup();
-lookup.addAmgArtistId("5505");
-Response response = new Searcher().lookup(lookup);
+Response response = new Lookup();
+	.addAmgArtistId("5505");
+	.execute();
 ```
 
 ### Maven Central

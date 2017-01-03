@@ -23,7 +23,7 @@ package be.ceau.itunessearch.enums;
  * For example: {@code movieArtist} for a movie media type search.
  * </p>
  * <p>
- * The default is the track entity associated with the specified media type.
+ * iTunes default is the track entity associated with the specified media type.
  * </p>
  */
 public enum Entity {

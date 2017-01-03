@@ -30,6 +30,11 @@ public class URLConnector implements Connector, Serializable {
 	private static final long serialVersionUID = 1476515538667L;
 
 	/**
+	 * Reusable, threadsafe {@link URLConnector} instance.
+	 */
+	public static final URLConnector INSTANCE = new URLConnector();
+	
+	/**
 	 * {@inheritDoc}
 	 */
 	public String get(String link) throws IOException {

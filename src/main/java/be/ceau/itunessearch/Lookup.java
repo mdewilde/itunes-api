@@ -13,11 +13,13 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.itunessearch.models;
+package be.ceau.itunessearch;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -64,6 +66,45 @@ public class Lookup implements Serializable {
 	}
 
 	/**
+	 * Execute this iTunes Lookup API request.
+	 * 
+	 * @return parsed {@link Response} from iTunes
+	 * @throws RuntimeException
+	 *             wrapping any {@link IOException} thrown performing the
+	 *             request or parsing the response
+	 * @see #execute(Connector)
+	 */
+	public Response execute() {
+		return execute(URLConnector.INSTANCE);
+	}
+
+	/**
+	 * Execute this iTunes Lookup API request using the provided
+	 * {@link Connector} implementation.
+	 * 
+	 * @param lookup
+	 *            {@link Lookup} instance, not {@code null}
+	 * @return parsed {@link Response} from iTunes
+	 * @throws IllegalArgumentException
+	 *             if argument {@code null}
+	 * @throws RuntimeException
+	 *             wrapping any {@link IOException} thrown performing the
+	 *             request or parsing the response
+	 * @see #execute()
+	 */
+	public Response execute(Connector connector) {
+		if (connector == null) {
+			throw new IllegalArgumentException("connector can not be null");
+		}
+		try {
+			String response = connector.get(build());
+			return Response.READER.readValue(response);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	/**
 	 * @return modifiable {@link Set} containing all ids currently set in this
 	 *         {@link Lookup}, never {@code null}
 	 */
@@ -73,6 +114,7 @@ public class Lookup implements Serializable {
 
 	/**
 	 * @param id
+	 *            an iTunes item id, can be {@code null}
 	 * @return {@code this} instance for method chaining
 	 */
 	public Lookup addId(String id) {
@@ -84,9 +126,11 @@ public class Lookup implements Serializable {
 
 	/**
 	 * @param ids
+	 *            a {@link Collection} of iTunes item ids, can be {@code null}
+	 *            or empty
 	 * @return {@code this} instance for method chaining
 	 */
-	public Lookup setIds(Set<String> ids) {
+	public Lookup setIds(Collection<String> ids) {
 		map.get(ID).clear();
 		if (ids != null) {
 			for (String id : ids) {
@@ -106,6 +150,7 @@ public class Lookup implements Serializable {
 
 	/**
 	 * @param amgArtistId
+	 *            an All Music artist id, can be {@code null}
 	 * @return {@code this} instance for method chaining
 	 */
 	public Lookup addAmgArtistId(String amgArtistId) {
@@ -117,9 +162,11 @@ public class Lookup implements Serializable {
 
 	/**
 	 * @param amgArtistIds
+	 *            a {@link Collection} of All Music artist ids, can be
+	 *            {@code null} or empty
 	 * @return {@code this} instance for method chaining
 	 */
-	public Lookup setAmgArtistIds(Set<String> amgArtistIds) {
+	public Lookup setAmgArtistIds(Collection<String> amgArtistIds) {
 		map.get(AMG_ARTIST_ID).clear();
 		if (amgArtistIds != null) {
 			for (String amgArtistId : amgArtistIds) {
@@ -130,29 +177,32 @@ public class Lookup implements Serializable {
 	}
 
 	/**
-	 * @return modifiable {@link Set} containing all AMG album ids currently
-	 *         set in this {@link Lookup}, never {@code null}
+	 * @return modifiable {@link Set} containing all AMG album ids currently set
+	 *         in this {@link Lookup}, never {@code null}
 	 */
 	public Set<String> getAmgAlbumIds() {
 		return map.get(AMG_ALBUM_ID);
 	}
 
 	/**
-	 * @param isbn
+	 * @param amgAlbumId
+	 *            an All Music album id, can be {@code null}
 	 * @return {@code this} instance for method chaining
 	 */
-	public Lookup addAmgAlbumId(String isbn) {
-		if (isbn != null) {
-			map.get(AMG_ALBUM_ID).add(isbn);
+	public Lookup addAmgAlbumId(String amgAlbumId) {
+		if (amgAlbumId != null) {
+			map.get(AMG_ALBUM_ID).add(amgAlbumId);
 		}
 		return this;
 	}
 
 	/**
 	 * @param amgAlbumIds
+	 *            a {@link Collection} of All Music album ids, can be
+	 *            {@code null} or empty
 	 * @return {@code this} instance for method chaining
 	 */
-	public Lookup setAmgAlbumId(Set<String> amgAlbumIds) {
+	public Lookup setAmgAlbumId(Collection<String> amgAlbumIds) {
 		map.get(AMG_ALBUM_ID).clear();
 		if (amgAlbumIds != null) {
 			for (String amgAlbumId : amgAlbumIds) {
@@ -163,8 +213,8 @@ public class Lookup implements Serializable {
 	}
 
 	/**
-	 * @return modifiable {@link Set} containing all AMG video ids currently
-	 *         set in this {@link Lookup}, never {@code null}
+	 * @return modifiable {@link Set} containing all AMG video ids currently set
+	 *         in this {@link Lookup}, never {@code null}
 	 */
 	public Set<String> getAmgVideoIds() {
 		return map.get(AMG_VIDEO_ID);
@@ -172,6 +222,7 @@ public class Lookup implements Serializable {
 
 	/**
 	 * @param amgVideoId
+	 *            an All Music video id, can be {@code null}
 	 * @return {@code this} instance for method chaining
 	 */
 	public Lookup addAmgVideoId(String amgVideoId) {
@@ -183,9 +234,11 @@ public class Lookup implements Serializable {
 
 	/**
 	 * @param amgVideoIds
+	 *            a {@link Collection} of All Music video ids, can be
+	 *            {@code null} or empty
 	 * @return {@code this} instance for method chaining
 	 */
-	public Lookup setAmgVideoIds(Set<String> amgVideoIds) {
+	public Lookup setAmgVideoIds(Collection<String> amgVideoIds) {
 		map.get(AMG_VIDEO_ID).clear();
 		if (amgVideoIds != null) {
 			for (String amgVideoId : amgVideoIds) {
@@ -196,8 +249,8 @@ public class Lookup implements Serializable {
 	}
 
 	/**
-	 * @return modifiable {@link Set} containing all UPCs currently
-	 *         set in this {@link Lookup}, never {@code null}
+	 * @return modifiable {@link Set} containing all UPCs currently set in this
+	 *         {@link Lookup}, never {@code null}
 	 */
 	public Set<String> getUpcs() {
 		return map.get(UPC);
@@ -205,6 +258,7 @@ public class Lookup implements Serializable {
 
 	/**
 	 * @param upc
+	 *            a UPC, can be {@code null}
 	 * @return {@code this} instance for method chaining
 	 */
 	public Lookup addUpc(String upc) {
@@ -216,9 +270,11 @@ public class Lookup implements Serializable {
 
 	/**
 	 * @param upcs
+	 *            a {@link Collection} of UPCs, can be
+	 *            {@code null} or empty
 	 * @return {@code this} instance for method chaining
 	 */
-	public Lookup setUpcs(Set<String> upcs) {
+	public Lookup setUpcs(Collection<String> upcs) {
 		map.get(UPC).clear();
 		if (upcs != null) {
 			for (String upc : upcs) {
@@ -229,8 +285,8 @@ public class Lookup implements Serializable {
 	}
 
 	/**
-	 * @return modifiable {@link Set} containing all ISBNs currently
-	 *         set in this {@link Lookup}, never {@code null}
+	 * @return modifiable {@link Set} containing all ISBNs currently set in this
+	 *         {@link Lookup}, never {@code null}
 	 */
 	public Set<String> getIsbns() {
 		return map.get(ISBN);
@@ -238,6 +294,7 @@ public class Lookup implements Serializable {
 
 	/**
 	 * @param isbn
+	 *            an ISBN, can be {@code null}
 	 * @return {@code this} instance for method chaining
 	 */
 	public Lookup addIsbn(String isbn) {
@@ -249,9 +306,11 @@ public class Lookup implements Serializable {
 
 	/**
 	 * @param isbns
+	 *            a {@link Collection} of ISBNs, can be
+	 *            {@code null} or empty
 	 * @return {@code this} instance for method chaining
 	 */
-	public Lookup setIsbns(Set<String> isbns) {
+	public Lookup setIsbns(Collection<String> isbns) {
 		map.get(ISBN).clear();
 		if (isbns != null) {
 			for (String isbn : isbns) {
@@ -261,12 +320,16 @@ public class Lookup implements Serializable {
 		return this;
 	}
 
+	/**
+	 * @return an {@link Entity}, or {@code null}
+	 */
 	public Entity getEntity() {
 		return entity;
 	}
 
 	/**
 	 * @param entity
+	 *            an {@link Entity}, or {@code null}
 	 * @return {@code this} instance for method chaining
 	 */
 	public Lookup setEntity(Entity entity) {
@@ -274,12 +337,16 @@ public class Lookup implements Serializable {
 		return this;
 	}
 
+	/**
+	 * @return maximum number of results to include in the response, or 0 if not set
+	 */
 	public int getLimit() {
 		return limit;
 	}
 
 	/**
 	 * @param limit
+	 *            the maximum number of results to include in the response
 	 * @return {@code this} instance for method chaining
 	 */
 	public Lookup setLimit(int limit) {
@@ -287,12 +354,16 @@ public class Lookup implements Serializable {
 		return this;
 	}
 
+	/**
+	 * @return {@link Sort} instance, or {@code null}
+	 */
 	public Sort getSort() {
 		return sort;
 	}
 
 	/**
 	 * @param sort
+	 *            a {@link Sort} instance, or {@code null}
 	 * @return {@code this} instance for method chaining
 	 */
 	public Lookup setSort(Sort sort) {
