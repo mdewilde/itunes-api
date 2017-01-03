@@ -82,8 +82,8 @@ public class Lookup implements Serializable {
 	 * Execute this iTunes Lookup API request using the provided
 	 * {@link Connector} implementation.
 	 * 
-	 * @param lookup
-	 *            {@link Lookup} instance, not {@code null}
+	 * @param connector
+	 *            {@link Connector} instance, not {@code null}
 	 * @return parsed {@link Response} from iTunes
 	 * @throws IllegalArgumentException
 	 *             if argument {@code null}
