@@ -11,7 +11,7 @@ Java client for the [iTunes Search API](https://affiliate.itunes.apple.com/resou
 Response response = new Search("ceau").execute();
 ```
 
-iTunes Search allows specifying your own logic to perform HTTP requests. To do so, simply implement the `be.ceau.itunessearch.Connector` interface and pass an instance to the execute method of a `be.ceau.itunessearch.Search` or `be.ceau.itunessearch.Lookup` instance.
+iTunes Search allows specifying your own logic to perform HTTP requests. To do so, simply implement the `be.ceau.itunessearch.Connector` interface and pass an instance to the execute method of a `be.ceau.itunessearch.Search` or `be.ceau.itunessearch.Lookup`.
 
 ```Java
 Response response = new Search("ceau").execute(new YourConnectorImpl());
