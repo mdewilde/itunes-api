@@ -1,6 +1,6 @@
 #iTunes Search
 
-[![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/itunes-search/badge.svg)](http://mvnrepository.com/artifact/be.ceau/itunes-search) [![Javadocs](https://javadoc.io/badge/be.ceau/itunes-search.svg)](https://javadoc.io/doc/be.ceau/itunes-search)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/itunes-search/badge.svg)](https://mvnrepository.com/artifact/be.ceau/itunes-search)  [![Javadocs](https://javadoc.io/badge/be.ceau/itunes-search.svg)](https://javadoc.io/doc/be.ceau/itunes-search)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 Java client for the [iTunes Search API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/).
 
@@ -40,7 +40,7 @@ Verify signature files with my [GnuPG public key](https://www.ceau.be/pubkey.gpg
 View javadoc for current release at [javadoc.io](https://javadoc.io/doc/be.ceau/itunes-search).
 
 ### License
-Licensed under [the Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.txt).
+Licensed under [the Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 ### Disclaimer
 iTunes is a trademark of Apple Inc., registered in the U.S. and other countries.
