@@ -72,7 +72,10 @@ public class FeedGenerator {
 	 * @return parsed {@link Feed}
 	 */
 	public Feed getFeed() {
+		FeedFormat chosenFormat = getFormat();
+		setFormat(FeedFormat.JSON);
 		String url = getUrl();
+		setFormat(chosenFormat);
 		try {
 			String response = new URLConnector().get(url);
 			System.out.println(response);
@@ -157,7 +160,7 @@ public class FeedGenerator {
 	}
 
 	/**
-	 * Default value is {@link 10} <br>
+	 * Default value is {@code 10} <br>
 	 * <br>
 	 * Note that Apple limits results to 200, even when more are requested
 	 * 
@@ -196,7 +199,7 @@ public class FeedGenerator {
 	/**
 	 * Default value is {@link FeedFormat#JSON}
 	 * 
-	 * @param country
+	 * @param format
 	 *            a {@link FeedFormat}, not {@code null}
 	 * @return {@code this} instance for method chaining
 	 */
