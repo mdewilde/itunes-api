@@ -15,26 +15,18 @@
 */
 package be.ceau.itunessearch.enums;
 
-import java.util.Locale;
+public enum FeedFormat {
 
-/**
- * <p>
- * Sort order for results in an iTunes response.
- * </p>
- */
-public enum Sort {
-
-	POPULAR,
-	RECENT;
-
-	private final String string;
-
-	private Sort() {
-		this.string = name().toLowerCase(Locale.ENGLISH);
+	JSON,
+	XML;
+	
+	private final String code;
+	private FeedFormat() {
+		this.code = name().toLowerCase();
 	}
 
-	public String toString() {
-		return this.string;
+	public String getCode() {
+		return code;
 	}
 
 }

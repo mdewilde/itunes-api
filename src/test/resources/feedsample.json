@@ -1,0 +1,108 @@
+{
+  "feed": {
+    "title": "New Releases",
+    "id": "https://rss.itunes.apple.com/api/v1/US/apple-music/new-music/4/explicit/json",
+    "author": {
+      "name": "iTunes Store",
+      "uri": "http://wwww.apple.com/us/itunes/"
+    },
+    "links": [
+      {
+        "self": "https://rss.itunes.apple.com/api/v1/US/apple-music/new-music/4/explicit/json"
+      },
+      {
+        "alternate": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewGrouping?id=1"
+      }
+    ],
+    "copyright": "Copyright © 2017 Apple Inc. Все права защищены.",
+    "country": "us",
+    "icon": "http://itunes.apple.com/favicon.ico",
+    "updated": "2017-07-31T01:50:08.000-07:00",
+    "results": [
+      {
+        "artistId": "23203991",
+        "artistName": "Arcade Fire",
+        "artistUrl": "https://itunes.apple.com/us/artist/arcade-fire/id23203991",
+        "artworkUrl100": "http://is1.mzstatic.com/image/thumb/Music127/v4/9d/1f/88/9d1f88d7-0734-68b2-8bac-9f094b8b8967/source/200x200bb.png",
+        "contentAdvisoryRating": "",
+        "copyright": "℗ 2017 Arcade Fire Music under exclusive licence to Sony Music Entertainment  UK Limited",
+        "genreNames": [
+          "Alternative",
+          "Music"
+        ],
+        "id": "1240796998",
+        "kind": "album",
+        "name": "Everything Now",
+        "primaryGenreName": "Alternative",
+        "releaseDate": "2017-07-28T00:00:00Z",
+        "trackCensoredName": "Everything Now",
+        "trackExplicitness": "",
+        "url": "https://itunes.apple.com/us/album/everything-now/id1240796998",
+        "version": ""
+      },
+      {
+        "artistId": "598667873",
+        "artistName": "Vic Mensa",
+        "artistUrl": "https://itunes.apple.com/us/artist/vic-mensa/id598667873",
+        "artworkUrl100": "http://is4.mzstatic.com/image/thumb/Music117/v4/8c/99/e8/8c99e859-3a96-67c3-f035-43265a77a261/source/200x200bb.png",
+        "contentAdvisoryRating": "Explicit",
+        "copyright": "℗ 2017 Roc Nation Records, LLC",
+        "genreNames": [
+          "Hip-Hop/Rap",
+          "Music"
+        ],
+        "id": "1256952577",
+        "kind": "album",
+        "name": "The Autobiography",
+        "primaryGenreName": "Hip-Hop/Rap",
+        "releaseDate": "2017-07-28T00:00:00Z",
+        "trackCensoredName": "The Autobiography",
+        "trackExplicitness": "Explicit",
+        "url": "https://itunes.apple.com/us/album/the-autobiography/id1256952577",
+        "version": ""
+      },
+      {
+        "artistId": "24282352",
+        "artistName": "Atticus Ross, Leopold Ross & Claudia Sarne",
+        "artistUrl": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewCollaboration?cc=us&ids=24282352-468105636-468680408",
+        "artworkUrl100": "http://is4.mzstatic.com/image/thumb/Music128/v4/57/16/c3/5716c37f-e874-094a-e6de-f1366489f20e/source/200x200bb.png",
+        "contentAdvisoryRating": "",
+        "copyright": "A Home Box Office, Inc./Interscope Records Release;℗2017 UMG Recordings, Inc.",
+        "genreNames": [
+          "Soundtrack",
+          "Music"
+        ],
+        "id": "1262173141",
+        "kind": "album",
+        "name": "The Defiant Ones (Original Score)",
+        "primaryGenreName": "Soundtrack",
+        "releaseDate": "2017-07-28T00:00:00Z",
+        "trackCensoredName": "The Defiant Ones (Original Score)",
+        "trackExplicitness": "",
+        "url": "https://itunes.apple.com/us/album/the-defiant-ones-original-score/id1262173141",
+        "version": ""
+      },
+      {
+        "artistId": "378430797",
+        "artistName": "Julia Michaels",
+        "artistUrl": "https://itunes.apple.com/us/artist/julia-michaels/id378430797",
+        "artworkUrl100": "http://is1.mzstatic.com/image/thumb/Music128/v4/e3/ce/33/e3ce33ae-0b40-a7fa-54ba-593ee16fb472/source/200x200bb.png",
+        "contentAdvisoryRating": "Explicit",
+        "copyright": "℗ 2017 Republic Records, a division of UMG Recordings, Inc.",
+        "genreNames": [
+          "Pop",
+          "Music"
+        ],
+        "id": "1262015051",
+        "kind": "album",
+        "name": "Nervous System",
+        "primaryGenreName": "Pop",
+        "releaseDate": "2017-07-28T00:00:00Z",
+        "trackCensoredName": "Nervous System",
+        "trackExplicitness": "Explicit",
+        "url": "https://itunes.apple.com/us/album/nervous-system/id1262015051",
+        "version": ""
+      }
+    ]
+  }
+}

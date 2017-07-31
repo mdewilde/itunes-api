@@ -13,28 +13,42 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.itunessearch.enums;
+package be.ceau.itunessearch;
 
-import java.util.Locale;
+import java.io.Serializable;
 
-/**
- * <p>
- * Sort order for results in an iTunes response.
- * </p>
- */
-public enum Sort {
+public class Author implements Serializable {
 
-	POPULAR,
-	RECENT;
+	private static final long serialVersionUID = 1501415280761L;
 
-	private final String string;
+	private String name;
+	private String uri;
 
-	private Sort() {
-		this.string = name().toLowerCase(Locale.ENGLISH);
+	public String getName() {
+		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getUri() {
+		return uri;
+	}
+
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
+
+	@Override
 	public String toString() {
-		return this.string;
+		return new StringBuilder()
+				.append("Author [name=")
+				.append(name)
+				.append(", uri=")
+				.append(uri)
+				.append("]")
+				.toString();
 	}
 
 }
