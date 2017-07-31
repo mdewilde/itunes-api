@@ -21,6 +21,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import be.ceau.itunessearch.enums.Country;
+import be.ceau.itunessearch.enums.Entity;
 import be.ceau.itunessearch.enums.Media;
 
 public class SearchTest {
@@ -63,11 +64,11 @@ public class SearchTest {
 	@Test
 	public void mediaTest() throws IOException {
 		for (Media media : Media.values()) {
-			Search request = new Search();
-			request.setTerm("springsteen");
-			request.setCountry(Country.UNITED_STATES);
-			request.setMedia(media);
-			request.setLimit(2);
+			Search request = new Search()
+					.setTerm("springsteen")
+					.setCountry(Country.UNITED_STATES)
+					.setMedia(media)
+					.setLimit(2);
 			String response = new URLConnector().get(request.build());
 			Assert.assertNotNull(response);
 		}
