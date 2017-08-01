@@ -28,6 +28,9 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import be.ceau.itunessearch.Link.LinkDeserializer;
 
+/**
+ * Single link in an iTunes {@link Feed}.
+ */
 @JsonDeserialize(using = LinkDeserializer.class)
 public class Link implements Serializable {
 

@@ -15,43 +15,23 @@
 */
 package be.ceau.itunessearch;
 
-import java.io.Serializable;
+import java.io.IOException;
 
-/**
- * Author of an iTunes {@link Feed}.
- */
-public class Author implements Serializable {
+import org.junit.Assert;
+import org.junit.Test;
 
-	private static final long serialVersionUID = 1501415280761L;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-	private String name;
-	private String uri;
+public class GenreIdsAppendixTest {
 
-	public String getName() {
-		return name;
+	@Test
+	public void getGenres() throws JsonProcessingException, IOException {
+		GenreIdsResponse response = new GenreIdsAppendix().execute();
+		Assert.assertNotNull(response);
+		Assert.assertTrue(!response.getGenres().isEmpty());
+		for (Genre genre : response.getGenres().values()) {
+			Assert.assertNotNull(genre);
+		}
 	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getUri() {
-		return uri;
-	}
-
-	public void setUri(String uri) {
-		this.uri = uri;
-	}
-
-	@Override
-	public String toString() {
-		return new StringBuilder()
-				.append("Author [name=")
-				.append(name)
-				.append(", uri=")
-				.append(uri)
-				.append("]")
-				.toString();
-	}
-
+	
 }

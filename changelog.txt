@@ -1,5 +1,6 @@
-3.0		2017-07-30
+3.0		2017-08
 * add implementation of RSS Feed Generator
+* add implementation of Genre IDs Appendix
 
 2.0 	2017-01
 * add implementation of Lookup API

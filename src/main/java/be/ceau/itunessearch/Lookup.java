@@ -31,7 +31,9 @@ import be.ceau.itunessearch.enums.Entity;
 import be.ceau.itunessearch.enums.Sort;
 
 /**
- * Request object for the iTunes lookup API.
+ * Request object for the iTunes Lookup API.
+ * 
+ * @see <a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#lookup">Lookup API</a>
  */
 public class Lookup implements Serializable {
 

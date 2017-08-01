@@ -16,6 +16,7 @@
 package be.ceau.itunessearch;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 import be.ceau.itunessearch.enums.Country;
 import be.ceau.itunessearch.enums.FeedFormat;
@@ -23,11 +24,13 @@ import be.ceau.itunessearch.enums.FeedType;
 import be.ceau.itunessearch.enums.MediaType;
 
 /**
- * Implementation of the RSS Feed Generator API.
+ * Request object for the iTunes Feed Generator API.
  *
  * @see <a href="https://rss.itunes.apple.com">rss.itunes.apple.com</a>
  */
-public class FeedGenerator {
+public class FeedGenerator implements Serializable {
+
+	private static final long serialVersionUID = 1501610083087L;
 
 	private static final String API_ENDPOINT = "https://rss.itunes.apple.com/api/v1/";
 
@@ -71,17 +74,37 @@ public class FeedGenerator {
 	 * 
 	 * @return parsed {@link Feed}
 	 */
-	public Feed getFeed() {
+	public Feed execute() {
+		return execute(URLConnector.INSTANCE);
+	}
+
+	/**
+	 * Execute this Feed Generator API request using the provided
+	 * {@link Connector} implementation.
+	 * 
+	 * @param connector
+	 *            {@link Connector} implementation, not {@code null}
+	 * @return parsed {@link Feed} response from iTunes
+	 * @throws IllegalArgumentException
+	 *             if argument {@code null}
+	 * @throws RuntimeException
+	 *             wrapping any {@link IOException} thrown performing the
+	 *             request or parsing the response
+	 */
+	public Feed execute(Connector connector) {
+		if (connector == null) {
+			throw new IllegalArgumentException("connector can not be null");
+		}
 		FeedFormat chosenFormat = getFormat();
 		setFormat(FeedFormat.JSON);
 		String url = getUrl();
 		setFormat(chosenFormat);
 		try {
-			String response = new URLConnector().get(url);
+			String response = connector.get(url);
 			System.out.println(response);
 			return Response.READER.readValue(response);
 		} catch (IOException e) {
-			throw new RuntimeException(String.format("error on response %s", ""), e);
+			throw new RuntimeException(e);
 		}
 	}
 

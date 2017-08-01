@@ -28,7 +28,9 @@ import be.ceau.itunessearch.enums.Lang;
 import be.ceau.itunessearch.enums.Media;
 
 /**
- * Request object for the iTunes search API.
+ * Request object for the iTunes Search API.
+ * 
+ * @see <a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#searching">Search API</a>
  */
 public class Search implements Serializable {
 

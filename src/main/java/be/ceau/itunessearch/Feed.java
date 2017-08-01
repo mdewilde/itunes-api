@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 
 /**
- * Full iTunes feed.
+ * iTunes Feed Generator response
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Feed implements Serializable {

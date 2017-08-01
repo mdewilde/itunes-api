@@ -21,7 +21,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import be.ceau.itunessearch.enums.Country;
-import be.ceau.itunessearch.enums.Entity;
 import be.ceau.itunessearch.enums.Media;
 
 public class SearchTest {

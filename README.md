@@ -9,7 +9,6 @@
   * [Feed Generator API](https://rss.itunes.apple.com/en-us)
   * [Genre ID API](https://affiliate.itunes.apple.com/resources/documentation/genre-mapping/)
 
-
 ### Usage
 
 ##### Search
@@ -60,16 +59,20 @@ String url = new FeedGenerator()
 ```
 
 ##### Genre ID
+Get the full genre hierarchy for the iTunes store, along with relevant links for each genre.
 
+```Java
+GenreIdsResponse response = new GenreIdsAppendix().getGenres();
+```
 
 ##### HTTP connection setup 
 
-iTunes Search allows specifying your own logic to perform HTTP requests. To do so, simply implement the `be.ceau.itunessearch.Connector` interface and pass an instance to the execute method of a `be.ceau.itunessearch.Search` or `be.ceau.itunessearch.Lookup`.
+**iTunes Search** allows specifying custom logic to perform HTTP requests. To do so, implement the `be.ceau.itunessearch.Connector` interface and pass an instance to the relevant API entry point:
 
-```Java
-Response response = new Search("test")
-		.execute(new YourConnectorImpl());
-```
+  * `be.ceau.itunessearch.Search.execute(Connector)`
+  * `be.ceau.itunessearch.Lookup.execute(Connector)`
+  * `be.ceau.itunessearch.FeedGenerator.execute(Connector)`
+  * `be.ceau.itunessearch.GenreIdsAppendix.execute(Connector)`
 
 ### Requirements
 This library requires Java 7 or higher.

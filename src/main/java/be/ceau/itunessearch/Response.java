@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 
 /**
- * Full iTunes response.
+ * Full iTunes Search or Lookup response
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Response implements Serializable {
