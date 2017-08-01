@@ -18,6 +18,7 @@ package be.ceau.itunessearch;
 import java.io.IOException;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import be.ceau.itunessearch.enums.Country;
@@ -25,6 +26,11 @@ import be.ceau.itunessearch.enums.Media;
 
 public class SearchTest {
 
+	@Before
+	public void setup() {
+		System.setProperty("org.slf4j.simpleLogger.defaultLogLevel", "trace");
+	}
+	
 	/**
 	 * Find podcast Uhh Yeah Dude
 	 */

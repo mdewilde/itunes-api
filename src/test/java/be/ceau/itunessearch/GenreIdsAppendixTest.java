@@ -18,11 +18,17 @@ package be.ceau.itunessearch;
 import java.io.IOException;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class GenreIdsAppendixTest {
+
+	@Before
+	public void setup() {
+		System.setProperty("org.slf4j.simpleLogger.defaultLogLevel", "trace");
+	}
 
 	@Test
 	public void getGenres() throws JsonProcessingException, IOException {

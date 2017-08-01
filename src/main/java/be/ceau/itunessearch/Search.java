@@ -21,6 +21,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import be.ceau.itunessearch.enums.Attribute;
 import be.ceau.itunessearch.enums.Country;
 import be.ceau.itunessearch.enums.Entity;
@@ -33,6 +36,8 @@ import be.ceau.itunessearch.enums.Media;
  * @see <a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#searching">Search API</a>
  */
 public class Search implements Serializable {
+
+	private static final Logger logger = LoggerFactory.getLogger(Search.class);
 
 	private static final long serialVersionUID = 1476515615735L;
 
@@ -100,7 +105,9 @@ public class Search implements Serializable {
 			throw new IllegalArgumentException("connector can not be null");
 		}
 		try {
-			String response = connector.get(build());
+			String url = build();
+			String response = connector.get(url);
+			logger.trace("{} -> {}", url, response);
 			return Response.READER.readValue(response);
 		} catch (IOException e) {
 			throw new RuntimeException(e);

@@ -16,11 +16,17 @@
 package be.ceau.itunessearch;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import be.ceau.itunessearch.enums.Entity;
 
 public class LookupTest {
+
+	@Before
+	public void setup() {
+		System.setProperty("org.slf4j.simpleLogger.defaultLogLevel", "trace");
+	}
 
 	@Test
 	public void idsIsNotNull() {

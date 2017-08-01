@@ -18,6 +18,9 @@ package be.ceau.itunessearch;
 import java.io.IOException;
 import java.io.Serializable;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import be.ceau.itunessearch.enums.Country;
 import be.ceau.itunessearch.enums.FeedFormat;
 import be.ceau.itunessearch.enums.FeedType;
@@ -30,6 +33,8 @@ import be.ceau.itunessearch.enums.MediaType;
  */
 public class FeedGenerator implements Serializable {
 
+	private static final Logger logger = LoggerFactory.getLogger(FeedGenerator.class);
+	
 	private static final long serialVersionUID = 1501610083087L;
 
 	private static final String API_ENDPOINT = "https://rss.itunes.apple.com/api/v1/";
@@ -101,7 +106,7 @@ public class FeedGenerator implements Serializable {
 		setFormat(chosenFormat);
 		try {
 			String response = connector.get(url);
-			System.out.println(response);
+			logger.trace("{} -> {}", url, response);
 			return Response.READER.readValue(response);
 		} catch (IOException e) {
 			throw new RuntimeException(e);

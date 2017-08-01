@@ -18,12 +18,17 @@ package be.ceau.itunessearch;
 import java.io.IOException;
 import java.io.Serializable;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Implementation of the Genre IDs Appendix API.
  *
  * @see <a href="https://affiliate.itunes.apple.com/resources/documentation/genre-mapping/">Genre ID API</a>
  */
 public class GenreIdsAppendix implements Serializable {
+
+	private static final Logger logger = LoggerFactory.getLogger(GenreIdsAppendix.class);
 
 	private static final long serialVersionUID = 1501610161047L;
 
@@ -60,6 +65,7 @@ public class GenreIdsAppendix implements Serializable {
 		}
 		try {
 			String response = connector.get(API_ENDPOINT);
+			logger.trace("{} -> {}", API_ENDPOINT, response);
 			return GenreIdsResponse.parse(response);
 		} catch (IOException e) {
 			throw new RuntimeException(e);

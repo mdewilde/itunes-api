@@ -27,6 +27,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import be.ceau.itunessearch.enums.Entity;
 import be.ceau.itunessearch.enums.Sort;
 
@@ -36,6 +39,8 @@ import be.ceau.itunessearch.enums.Sort;
  * @see <a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#lookup">Lookup API</a>
  */
 public class Lookup implements Serializable {
+
+	private static final Logger logger = LoggerFactory.getLogger(Lookup.class);
 
 	private static final long serialVersionUID = 1479238701182L;
 
@@ -99,7 +104,9 @@ public class Lookup implements Serializable {
 			throw new IllegalArgumentException("connector can not be null");
 		}
 		try {
-			String response = connector.get(build());
+			String url = build();
+			String response = connector.get(url);
+			logger.trace("{} -> {}", url, response);
 			return Response.READER.readValue(response);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
