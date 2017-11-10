@@ -16,23 +16,28 @@
 package be.ceau.itunessearch;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
-/**
- * Interface wrapping HTTP connection logic
- * 
- * @see URLConnector
- */
-public interface Connector {
+import org.junit.Assert;
+import org.junit.Test;
 
-	/**
-	 * Perform an HTTP request. Return the response body as {@link String}.
-	 * 
-	 * @param link
-	 *            a full link, including scheme
-	 * @return server response body as {@link String}, never {@code null}
-	 * @throws IOException
-	 *             if a problem occurred with the connection
-	 */
-	public String get(String link) throws IOException;
+public class URLConnectorTest {
+
+	@Test(expected = MalformedURLException.class)
+	public void nullArgument() throws IOException {
+		URLConnector.INSTANCE.get(null);
+	}
+
+	@Test(expected = MalformedURLException.class)
+	public void noSchemeArgument() throws IOException {
+		URLConnector.INSTANCE.get("www.apple.com");
+	}
+
+	@Test
+	public void appleDotCom() throws IOException {
+		String appleDotCom = URLConnector.INSTANCE.get("https://www.apple.com");
+		Assert.assertNotNull(appleDotCom);
+		Assert.assertTrue(!appleDotCom.isEmpty());
+	}
 
 }

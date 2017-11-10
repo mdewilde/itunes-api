@@ -16,47 +16,54 @@ Search for 15 podcasts with CBS Radio as author in the Canadian iTunes store:
 
 ```Java
 Response response = new Search("cbs radio")
-		.setCountry(Country.CANADA)
-		.setAttribute(Attribute.AUTHOR_TERM)		
-		.setLimit(15)
-		.execute();
+	.setCountry(Country.CANADA)
+	.setAttribute(Attribute.AUTHOR_TERM)		
+	.setLimit(15)
+	.execute();
 ```
+_See also_ [Search API page on apple.com](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#searching)
 
 ##### Lookup
 Lookup Bruce Springsteen albums by his iTunes artist id, 178834:
 		
 ```Java
 Response response = new Lookup()
-		.addId("178834")
-		.setEntity(Entity.ALBUM)
-		.execute();
+	.addId("178834")
+	.setEntity(Entity.ALBUM)
+	.execute();
 ```
+
+_See also_ [Lookup API page on apple.com](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#lookup)
 
 ##### Feed Generator
-With the Feed Generator implementation, you can create both the URL as request the feed directly from your application.
+The purpose of the Feed Generator API is to create custom RSS feeds of specific iTunes Store content, such as charts and new entries.
 
-To create a URL for a feed with the top 10 hot albums for Apple Music in France:
+This library allows creating feed URLs programmatically. It also allows retrieving the feed content directly.
 
-```Java
-String url = new FeedGenerator()
-		.setAllowExplicit(true)
-		.setCountry(Country.FRANCE)
-		.setMediaType(MediaType.APPLE_MUSIC)
-		.setFeedType(FeedType.HOT_ALBUMS)
-		.setResultsLimit(10)
-		.getUrl();
-```
-To get the current state of that feed as parsed Java object hierarchy:
+For example, create a feed URL for the top 10 hot albums for Apple Music in France:
 
 ```Java
 String url = new FeedGenerator()
-		.setAllowExplicit(true)
-		.setCountry(Country.FRANCE)
-		.setMediaType(MediaType.APPLE_MUSIC)
-		.setFeedType(FeedType.HOT_ALBUMS)
-		.setResultsLimit(10)
-		.getFeed();
+	.setCountry(Country.FRANCE)
+	.setMediaType(MediaType.APPLE_MUSIC)
+	.setFeedType(FeedType.HOT_ALBUMS)
+	.setResultsLimit(10)
+	.getUrl();
 ```
+
+To retrieve the feed content directly:
+
+```Java
+Feed feed = new FeedGenerator()
+	.setAllowExplicit(true)
+	.setCountry(Country.FRANCE)
+	.setMediaType(MediaType.APPLE_MUSIC)
+	.setFeedType(FeedType.HOT_ALBUMS)
+	.setResultsLimit(10)
+	.execute();
+```
+
+_See also_ [Feed Generator page on apple.com](https://rss.itunes.apple.com/)
 
 ##### Genre ID
 Get the full genre hierarchy for the iTunes store, along with relevant links for each genre.
@@ -65,7 +72,9 @@ Get the full genre hierarchy for the iTunes store, along with relevant links for
 GenreIdsResponse response = new GenreIdsAppendix().getGenres();
 ```
 
-##### HTTP connection setup 
+_See also_ [Genre ID page on apple.com](https://affiliate.itunes.apple.com/resources/documentation/genre-mapping/)
+
+##### HTTP connection setup
 
 **iTunes Search** allows specifying custom logic to perform HTTP requests. To do so, implement the `be.ceau.itunessearch.Connector` interface and pass an instance to the relevant API entry point:
 
@@ -80,9 +89,11 @@ This library requires Java 7 or higher.
 ### Maven Central
 Include this project directly from Maven Central
 ```XML
-<groupId>be.ceau</groupId>
-<artifactId>itunes-search</artifactId>
-<version>${project.version}</version>
+	<dependency>
+		<groupId>be.ceau</groupId>
+		<artifactId>itunes-search</artifactId>
+		<version>${project.version}</version>
+	</dependency>
 ```
 
 ### GnuPG public key

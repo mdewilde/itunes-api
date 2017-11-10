@@ -15,6 +15,10 @@
 */
 package be.ceau.itunessearch.enums;
 
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.Set;
+
 /**
  * <p>
  * Enumeration of possible countries that have searchable stores.
@@ -279,6 +283,8 @@ public enum Country {
 	private Country(String iso) {
 		this.iso = iso;
 	}
+	
+	public static final Set<Country> ALL = Collections.unmodifiableSet(EnumSet.allOf(Country.class));
 	
 	public String getIso() {
 		return this.iso;

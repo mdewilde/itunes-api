@@ -82,16 +82,16 @@ public class SearchTest {
 	@Test
 	public void emptyCollectionsNotNull() throws IOException {
 		Result result = new Result();
-		result.getAdvisories().isEmpty();
-		result.getGenreIds().isEmpty();
-		result.getGenres().isEmpty();
-		result.getIpadScreenshotUrls().isEmpty();
-		result.getAppletvScreenshotUrls().isEmpty();
-		result.getFeatures().isEmpty();
-		result.getSupportedDevices().isEmpty();
-		result.getAdvisories().isEmpty();
-		result.getScreenshotUrls().isEmpty();
-		result.getLanguageCodesISO2A().isEmpty();
+		Assert.assertTrue(result.getAdvisories().isEmpty());
+		Assert.assertTrue(result.getGenreIds().isEmpty());
+		Assert.assertTrue(result.getGenres().isEmpty());
+		Assert.assertTrue(result.getIpadScreenshotUrls().isEmpty());
+		Assert.assertTrue(result.getAppletvScreenshotUrls().isEmpty());
+		Assert.assertTrue(result.getFeatures().isEmpty());
+		Assert.assertTrue(result.getSupportedDevices().isEmpty());
+		Assert.assertTrue(result.getAdvisories().isEmpty());
+		Assert.assertTrue(result.getScreenshotUrls().isEmpty());
+		Assert.assertTrue(result.getLanguageCodesISO2A().isEmpty());
 	}
 	
 }

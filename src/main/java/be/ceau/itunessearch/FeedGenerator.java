@@ -107,7 +107,7 @@ public class FeedGenerator implements Serializable {
 		try {
 			String response = connector.get(url);
 			logger.trace("{} -> {}", url, response);
-			return Response.READER.readValue(response);
+			return Feed.READER.readValue(response);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
