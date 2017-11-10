@@ -76,7 +76,7 @@ _See also_ [Genre ID page on apple.com](https://affiliate.itunes.apple.com/resou
 
 ##### HTTP connection setup
 
-**iTunes Search** allows specifying custom logic to perform HTTP requests. To do so, implement the `be.ceau.itunessearch.Connector` interface and pass an instance to the relevant API entry point:
+To reduce external dependencies, **iTunes Search** has a default HTTP implementation relying on `java.net.URLConnection`. However, using your preferred way to make HTTP requests can be done by implementing the `be.ceau.itunessearch.Connector` interface and passing an instance to the relevant API entry point:
 
   * `be.ceau.itunessearch.Search.execute(Connector)`
   * `be.ceau.itunessearch.Lookup.execute(Connector)`
@@ -89,11 +89,11 @@ This library requires Java 7 or higher.
 ### Maven Central
 Include this project directly from Maven Central
 ```XML
-	<dependency>
-		<groupId>be.ceau</groupId>
-		<artifactId>itunes-search</artifactId>
-		<version>${project.version}</version>
-	</dependency>
+<dependency>
+	<groupId>be.ceau</groupId>
+	<artifactId>itunes-search</artifactId>
+	<version>${project.version}</version>
+</dependency>
 ```
 
 ### GnuPG public key
