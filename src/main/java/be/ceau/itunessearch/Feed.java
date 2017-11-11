@@ -40,12 +40,12 @@ public class Feed implements Serializable {
 	private String title;
 	private String id;
 	private Author author;
-	private final List<Link> links = new ArrayList<Link>();
+	private final List<Link> links = new ArrayList<>();
 	private String copyright;
 	private String country;
 	private String icon;
 	private String updated;
-	private final List<Result> results = new ArrayList<Result>();
+	private final List<Result> results = new ArrayList<>();
 
 	public String getTitle() {
 		return title;

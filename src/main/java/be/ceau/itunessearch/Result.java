@@ -96,20 +96,20 @@ public class Result implements Serializable {
 	private String longDescription;
 	private String description;
 
-	private final Set<String> genreIds = new HashSet<String>();
-	private final Set<String> genres = new HashSet<String>();
+	private final Set<String> genreIds = new HashSet<>();
+	private final Set<String> genres = new HashSet<>();
 
-	private final Set<String> ipadScreenshotUrls = new HashSet<String>();
-	private final Set<String> appletvScreenshotUrls = new HashSet<String>();
-	private final Set<String> features = new HashSet<String>();
-	private final Set<String> supportedDevices = new HashSet<String>();
-	private final Set<String> advisories = new HashSet<String>();
-	private final Set<String> screenshotUrls = new HashSet<String>();
+	private final Set<String> ipadScreenshotUrls = new HashSet<>();
+	private final Set<String> appletvScreenshotUrls = new HashSet<>();
+	private final Set<String> features = new HashSet<>();
+	private final Set<String> supportedDevices = new HashSet<>();
+	private final Set<String> advisories = new HashSet<>();
+	private final Set<String> screenshotUrls = new HashSet<>();
 
 	private Boolean isGameCenterEnabled;
 	private Integer averageUserRatingForCurrentVersion;
 	
-	private final Set<String> languageCodesISO2A = new HashSet<String>();
+	private final Set<String> languageCodesISO2A = new HashSet<>();
 
 	private Long fileSizeBytes;
 	private Integer userRatingCountForCurrentVersion;

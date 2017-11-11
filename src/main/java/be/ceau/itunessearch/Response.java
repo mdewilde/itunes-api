@@ -39,7 +39,7 @@ public class Response implements Serializable {
 
 	private int resultCount;
 	
-	private final List<Result> results = new ArrayList<Result>();
+	private final List<Result> results = new ArrayList<>();
 
 	/**
 	 * @return the number of results in this {@link Response}

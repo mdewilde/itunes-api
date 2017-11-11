@@ -62,7 +62,7 @@ public class Lookup implements Serializable {
 	 * No-arg constructor.
 	 */
 	public Lookup() {
-		Map<String, Set<String>> map = new HashMap<String, Set<String>>();
+		Map<String, Set<String>> map = new HashMap<>();
 		map.put(ID, new HashSet<String>());
 		map.put(AMG_ARTIST_ID, new HashSet<String>());
 		map.put(AMG_ALBUM_ID, new HashSet<String>());

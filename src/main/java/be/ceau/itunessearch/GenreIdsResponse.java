@@ -33,15 +33,17 @@ public class GenreIdsResponse implements Serializable {
 	private static final ObjectMapper MAPPER = new ObjectMapper();
 	private static final MapType MAP_TYPE = MAPPER.getTypeFactory().constructMapType(HashMap.class, Integer.class, Genre.class);
 
-	private final Map<Integer, Genre> genres = new HashMap<Integer, Genre>();
+	private final Map<Integer, Genre> genres = new HashMap<>();
 
 	/**
 	 * Static factory for parsing a valid JSON response to a new
 	 * {@link GenreIdsResponse} instance
 	 * 
 	 * @param json
-	 * @return
-	 * @throws IOException
+	 *            the JSON response received from Apple's Genre IDs Appendix API
+	 * @return a {@link GenreIdsAppendix} instance
+	 * @throws IllegalArgumentException if argument null
+	 * @throws IOException on exception with parsing JSON
 	 */
 	public static GenreIdsResponse parse(String json) throws IOException {
 		if (json == null) {
@@ -53,8 +55,16 @@ public class GenreIdsResponse implements Serializable {
 		return response;
 	}
 
+	/**
+	 * @return modifiable {@link Map} containing the parsed genres in this response
+	 */
 	public Map<Integer, Genre> getGenres() {
 		return genres;
+	}
+
+	@Override
+	public String toString() {
+		return "GenreIdsResponse[" + genres + "]";
 	}
 
 }
