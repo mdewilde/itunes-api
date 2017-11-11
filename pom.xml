@@ -168,6 +168,9 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
 				<version>3.0.1</version>
 			</plugin>
 			<plugin>
