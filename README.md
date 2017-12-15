@@ -1,6 +1,6 @@
 # iTunes API
 
-[![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/itunes-api/badge.svg)](https://mvnrepository.com/artifact/be.ceau/itunes-api)  [![Javadocs](https://javadoc.io/badge/be.ceau/itunes-api.svg)](https://javadoc.io/doc/be.ceau/itunes-api)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/itunes-api/badge.svg)](https://mvnrepository.com/artifact/be.ceau/itunes-api)  [![Javadocs](https://javadoc.io/badge/be.ceau/itunes-api.svg)](https://javadoc.io/doc/be.ceau/itunes-api)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt) [![build status](https://api.travis-ci.org/mdewilde/itunes-api.svg?branch=master)](https://travis-ci.org/mdewilde/itunes-api) ![code coverage](https://codecov.io/gh/mdewilde/itunes-api/branch/master/graph/badge.svg)
 
 **iTunes API** is a Java client library providing easy programmatic access to four different iTunes APIs.
 
