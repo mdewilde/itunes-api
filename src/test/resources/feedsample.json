@@ -1,107 +1,336 @@
 {
   "feed": {
-    "title": "New Releases",
-    "id": "https://rss.itunes.apple.com/api/v1/US/apple-music/new-music/4/explicit/json",
+    "title": "Top Audio Podcasts",
+    "id": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/explicit.json",
     "author": {
       "name": "iTunes Store",
       "uri": "http://wwww.apple.com/us/itunes/"
     },
     "links": [
       {
-        "self": "https://rss.itunes.apple.com/api/v1/US/apple-music/new-music/4/explicit/json"
+        "self": "https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/explicit.json"
       },
       {
-        "alternate": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewGrouping?id=1"
+        "alternate": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewTop?genreId=26&popId=28"
       }
     ],
-    "copyright": "Copyright © 2017 Apple Inc. Все права защищены.",
+    "copyright": "Hak Cipta © 2017 Apple Inc. Hak cipta dilindungi undang-undang.",
     "country": "us",
     "icon": "http://itunes.apple.com/favicon.ico",
-    "updated": "2017-07-31T01:50:08.000-07:00",
+    "updated": "2017-12-10T03:46:42.000-08:00",
     "results": [
       {
-        "artistId": "23203991",
-        "artistName": "Arcade Fire",
-        "artistUrl": "https://itunes.apple.com/us/artist/arcade-fire/id23203991",
-        "artworkUrl100": "http://is1.mzstatic.com/image/thumb/Music127/v4/9d/1f/88/9d1f88d7-0734-68b2-8bac-9f094b8b8967/source/200x200bb.png",
-        "contentAdvisoryRating": "",
-        "copyright": "℗ 2017 Arcade Fire Music under exclusive licence to Sony Music Entertainment  UK Limited",
-        "genreNames": [
-          "Alternative",
-          "Music"
+        "artistUrl": "https://itunes.apple.com/us/artist/the-new-york-times/121664449?mt=2",
+        "artistId": "121664449",
+        "artistName": "The New York Times",
+        "artworkUrl100": "http://is4.mzstatic.com/image/thumb/Music122/v4/1b/83/76/1b8376aa-90a9-eae1-662d-2b24faf1bf6e/source/200x200bb.png",
+        "copyright": "© 2017",
+        "genres": [
+          {
+            "genreId": "1311",
+            "name": "News & Politics",
+            "url": "https://itunes.apple.com/us/genre/id1311"
+          },
+          {
+            "genreId": "26",
+            "name": "Podcasts",
+            "url": "https://itunes.apple.com/us/genre/id26"
+          }
         ],
-        "id": "1240796998",
-        "kind": "album",
-        "name": "Everything Now",
-        "primaryGenreName": "Alternative",
-        "releaseDate": "2017-07-28T00:00:00Z",
-        "trackCensoredName": "Everything Now",
-        "trackExplicitness": "",
-        "url": "https://itunes.apple.com/us/album/everything-now/id1240796998",
-        "version": ""
+        "id": "1200361736",
+        "kind": "podcast",
+        "name": "The Daily",
+        "releaseDate": "2017-12-08",
+        "url": "https://itunes.apple.com/us/podcast/the-daily/id1200361736?mt=2"
       },
       {
-        "artistId": "598667873",
-        "artistName": "Vic Mensa",
-        "artistUrl": "https://itunes.apple.com/us/artist/vic-mensa/id598667873",
-        "artworkUrl100": "http://is4.mzstatic.com/image/thumb/Music117/v4/8c/99/e8/8c99e859-3a96-67c3-f035-43265a77a261/source/200x200bb.png",
-        "contentAdvisoryRating": "Explicit",
-        "copyright": "℗ 2017 Roc Nation Records, LLC",
-        "genreNames": [
-          "Hip-Hop/Rap",
-          "Music"
+        "artistName": "Mathis Entertainment, Inc.",
+        "artworkUrl100": "http://is5.mzstatic.com/image/thumb/Music127/v4/21/22/5e/21225e89-71df-0f12-a8ee-33f66cfde476/source/200x200bb.png",
+        "copyright": "© Kickass News is a trademark of Mathis Entertainment, Inc.",
+        "genres": [
+          {
+            "genreId": "1311",
+            "name": "News & Politics",
+            "url": "https://itunes.apple.com/us/genre/id1311"
+          },
+          {
+            "genreId": "26",
+            "name": "Podcasts",
+            "url": "https://itunes.apple.com/us/genre/id26"
+          },
+          {
+            "genreId": "1309",
+            "name": "TV & Film",
+            "url": "https://itunes.apple.com/us/genre/id1309"
+          },
+          {
+            "genreId": "1318",
+            "name": "Technology",
+            "url": "https://itunes.apple.com/us/genre/id1318"
+          }
         ],
-        "id": "1256952577",
-        "kind": "album",
-        "name": "The Autobiography",
-        "primaryGenreName": "Hip-Hop/Rap",
-        "releaseDate": "2017-07-28T00:00:00Z",
-        "trackCensoredName": "The Autobiography",
-        "trackExplicitness": "Explicit",
-        "url": "https://itunes.apple.com/us/album/the-autobiography/id1256952577",
-        "version": ""
+        "id": "1027264941",
+        "kind": "podcast",
+        "name": "Kickass News",
+        "releaseDate": "2017-12-07",
+        "url": "https://itunes.apple.com/us/podcast/kickass-news/id1027264941?mt=2"
       },
       {
-        "artistId": "24282352",
-        "artistName": "Atticus Ross, Leopold Ross & Claudia Sarne",
-        "artistUrl": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewCollaboration?cc=us&ids=24282352-468105636-468680408",
-        "artworkUrl100": "http://is4.mzstatic.com/image/thumb/Music128/v4/57/16/c3/5716c37f-e874-094a-e6de-f1366489f20e/source/200x200bb.png",
-        "contentAdvisoryRating": "",
-        "copyright": "A Home Box Office, Inc./Interscope Records Release;℗2017 UMG Recordings, Inc.",
-        "genreNames": [
-          "Soundtrack",
-          "Music"
+        "artistUrl": "https://itunes.apple.com/us/artist/ted/204040224?mt=2",
+        "artistId": "204040224",
+        "artistName": "TED",
+        "artworkUrl100": "http://is5.mzstatic.com/image/thumb/Music128/v4/d5/c6/50/d5c65035-505e-b006-48e5-be3f0f8f19f8/source/200x200bb.png",
+        "copyright": "© TED Conferences LLC",
+        "genres": [
+          {
+            "genreId": "1304",
+            "name": "Education",
+            "url": "https://itunes.apple.com/us/genre/id1304"
+          },
+          {
+            "genreId": "26",
+            "name": "Podcasts",
+            "url": "https://itunes.apple.com/us/genre/id26"
+          },
+          {
+            "genreId": "1301",
+            "name": "Arts",
+            "url": "https://itunes.apple.com/us/genre/id1301"
+          },
+          {
+            "genreId": "1315",
+            "name": "Science & Medicine",
+            "url": "https://itunes.apple.com/us/genre/id1315"
+          },
+          {
+            "genreId": "1324",
+            "name": "Society & Culture",
+            "url": "https://itunes.apple.com/us/genre/id1324"
+          },
+          {
+            "genreId": "1311",
+            "name": "News & Politics",
+            "url": "https://itunes.apple.com/us/genre/id1311"
+          },
+          {
+            "genreId": "1318",
+            "name": "Technology",
+            "url": "https://itunes.apple.com/us/genre/id1318"
+          }
         ],
-        "id": "1262173141",
-        "kind": "album",
-        "name": "The Defiant Ones (Original Score)",
-        "primaryGenreName": "Soundtrack",
-        "releaseDate": "2017-07-28T00:00:00Z",
-        "trackCensoredName": "The Defiant Ones (Original Score)",
-        "trackExplicitness": "",
-        "url": "https://itunes.apple.com/us/album/the-defiant-ones-original-score/id1262173141",
-        "version": ""
+        "id": "160904630",
+        "kind": "podcast",
+        "name": "TED Talks Daily",
+        "releaseDate": "2017-12-08",
+        "url": "https://itunes.apple.com/us/podcast/ted-talks-daily/id160904630?mt=2"
       },
       {
-        "artistId": "378430797",
-        "artistName": "Julia Michaels",
-        "artistUrl": "https://itunes.apple.com/us/artist/julia-michaels/id378430797",
-        "artworkUrl100": "http://is1.mzstatic.com/image/thumb/Music128/v4/e3/ce/33/e3ce33ae-0b40-a7fa-54ba-593ee16fb472/source/200x200bb.png",
-        "contentAdvisoryRating": "Explicit",
-        "copyright": "℗ 2017 Republic Records, a division of UMG Recordings, Inc.",
-        "genreNames": [
-          "Pop",
-          "Music"
+        "artistUrl": "https://itunes.apple.com/us/artist/audible/1237317443?mt=2",
+        "artistId": "1237317443",
+        "artistName": "Audible",
+        "artworkUrl100": "http://is4.mzstatic.com/image/thumb/Music118/v4/6e/6f/51/6e6f51bd-87eb-7ea8-d6e0-8832e889bd50/source/200x200bb.png",
+        "copyright": "©2017 Audible Originals, LLC (P) 2017 Audible Originals, LLC",
+        "genres": [
+          {
+            "genreId": "1324",
+            "name": "Society & Culture",
+            "url": "https://itunes.apple.com/us/genre/id1324"
+          },
+          {
+            "genreId": "26",
+            "name": "Podcasts",
+            "url": "https://itunes.apple.com/us/genre/id26"
+          }
         ],
-        "id": "1262015051",
-        "kind": "album",
-        "name": "Nervous System",
-        "primaryGenreName": "Pop",
-        "releaseDate": "2017-07-28T00:00:00Z",
-        "trackCensoredName": "Nervous System",
-        "trackExplicitness": "Explicit",
-        "url": "https://itunes.apple.com/us/album/nervous-system/id1262015051",
-        "version": ""
+        "id": "1237931798",
+        "kind": "podcast",
+        "name": "Where Should We Begin? with Esther Perel",
+        "releaseDate": "2017-12-01",
+        "url": "https://itunes.apple.com/us/podcast/where-should-we-begin-with-esther-perel/id1237931798?mt=2"
+      },
+      {
+        "artistUrl": "https://itunes.apple.com/us/artist/joe-rogan/974891224?mt=2",
+        "artistId": "974891224",
+        "artistName": "Joe Rogan",
+        "artworkUrl100": "http://is1.mzstatic.com/image/thumb/Music127/v4/d0/e6/5f/d0e65f81-c2cf-7f59-38e4-6abcfab7e38a/source/200x200bb.png",
+        "copyright": "Copyright © Talking Monkey Productions",
+        "genres": [
+          {
+            "genreId": "1303",
+            "name": "Comedy",
+            "url": "https://itunes.apple.com/us/genre/id1303"
+          },
+          {
+            "genreId": "26",
+            "name": "Podcasts",
+            "url": "https://itunes.apple.com/us/genre/id26"
+          },
+          {
+            "genreId": "1318",
+            "name": "Technology",
+            "url": "https://itunes.apple.com/us/genre/id1318"
+          },
+          {
+            "genreId": "1450",
+            "name": "Podcasting",
+            "url": "https://itunes.apple.com/us/genre/id1450"
+          },
+          {
+            "genreId": "1324",
+            "name": "Society & Culture",
+            "url": "https://itunes.apple.com/us/genre/id1324"
+          }
+        ],
+        "id": "360084272",
+        "kind": "podcast",
+        "name": "The Joe Rogan Experience",
+        "releaseDate": "2017-12-08",
+        "url": "https://itunes.apple.com/us/podcast/the-joe-rogan-experience/id360084272?mt=2"
+      },
+      {
+        "artistUrl": "https://itunes.apple.com/us/artist/crooked-media/1200975667?mt=2",
+        "artistId": "1200975667",
+        "artistName": "Crooked Media",
+        "artworkUrl100": "http://is5.mzstatic.com/image/thumb/Music122/v4/c9/68/50/c96850f5-ed6e-fe5e-59d1-fe5be5c54606/source/200x200bb.png",
+        "copyright": "© 2017 Crooked Media. All Rights Reserved.",
+        "genres": [
+          {
+            "genreId": "1311",
+            "name": "News & Politics",
+            "url": "https://itunes.apple.com/us/genre/id1311"
+          },
+          {
+            "genreId": "26",
+            "name": "Podcasts",
+            "url": "https://itunes.apple.com/us/genre/id26"
+          }
+        ],
+        "id": "1192761536",
+        "kind": "podcast",
+        "name": "Pod Save America",
+        "releaseDate": "2017-12-07",
+        "url": "https://itunes.apple.com/us/podcast/pod-save-america/id1192761536?mt=2"
+      },
+      {
+        "artistUrl": "https://itunes.apple.com/us/artist/l-a-times-wondery/1134742667?mt=2",
+        "artistId": "1134742667",
+        "artistName": "L.A. Times | Wondery",
+        "artworkUrl100": "http://is4.mzstatic.com/image/thumb/Music128/v4/d0/77/5b/d0775b67-f973-85ce-7596-fcb2cb87245c/source/200x200bb.png",
+        "copyright": "© 2017 All Rights Reserved.",
+        "genres": [
+          {
+            "genreId": "1302",
+            "name": "Personal Journals",
+            "url": "https://itunes.apple.com/us/genre/id1302"
+          },
+          {
+            "genreId": "26",
+            "name": "Podcasts",
+            "url": "https://itunes.apple.com/us/genre/id26"
+          },
+          {
+            "genreId": "1324",
+            "name": "Society & Culture",
+            "url": "https://itunes.apple.com/us/genre/id1324"
+          }
+        ],
+        "id": "1272970334",
+        "kind": "podcast",
+        "name": "Dirty John",
+        "releaseDate": "2017-10-08",
+        "url": "https://itunes.apple.com/us/podcast/dirty-john/id1272970334?mt=2"
+      },
+      {
+        "artistUrl": "https://itunes.apple.com/us/artist/this-american-life/364380278?mt=2",
+        "artistId": "364380278",
+        "artistName": "This American Life",
+        "artworkUrl100": "http://is1.mzstatic.com/image/thumb/Music71/v4/03/3c/f1/033cf19b-a70e-108f-2d77-82c5b8c8cde0/source/200x200bb.png",
+        "copyright": "© Copyright 1995-2016 Ira Glass",
+        "genres": [
+          {
+            "genreId": "1302",
+            "name": "Personal Journals",
+            "url": "https://itunes.apple.com/us/genre/id1302"
+          },
+          {
+            "genreId": "26",
+            "name": "Podcasts",
+            "url": "https://itunes.apple.com/us/genre/id26"
+          },
+          {
+            "genreId": "1324",
+            "name": "Society & Culture",
+            "url": "https://itunes.apple.com/us/genre/id1324"
+          },
+          {
+            "genreId": "1301",
+            "name": "Arts",
+            "url": "https://itunes.apple.com/us/genre/id1301"
+          },
+          {
+            "genreId": "1311",
+            "name": "News & Politics",
+            "url": "https://itunes.apple.com/us/genre/id1311"
+          }
+        ],
+        "id": "201671138",
+        "kind": "podcast",
+        "name": "This American Life",
+        "releaseDate": "2017-12-04",
+        "url": "https://itunes.apple.com/us/podcast/this-american-life/id201671138?mt=2"
+      },
+      {
+        "artistUrl": "https://itunes.apple.com/us/artist/howstuffworks/284341002?mt=2",
+        "artistId": "284341002",
+        "artistName": "HowStuffWorks",
+        "artworkUrl100": "http://is3.mzstatic.com/image/thumb/Music128/v4/ce/3f/27/ce3f27a5-b96d-f87e-6025-bd4b9eaa027f/source/200x200bb.png",
+        "copyright": "© Copyright 2015 HowStuffWorks",
+        "genres": [
+          {
+            "genreId": "1324",
+            "name": "Society & Culture",
+            "url": "https://itunes.apple.com/us/genre/id1324"
+          },
+          {
+            "genreId": "26",
+            "name": "Podcasts",
+            "url": "https://itunes.apple.com/us/genre/id26"
+          }
+        ],
+        "id": "278981407",
+        "kind": "podcast",
+        "name": "Stuff You Should Know",
+        "releaseDate": "2017-12-09",
+        "url": "https://itunes.apple.com/us/podcast/stuff-you-should-know/id278981407?mt=2"
+      },
+      {
+        "artistUrl": "https://itunes.apple.com/us/artist/serial-this-american-life/364380278?mt=2",
+        "artistId": "364380278",
+        "artistName": "Serial & This American Life",
+        "artworkUrl100": "http://is3.mzstatic.com/image/thumb/Music111/v4/e3/6f/f6/e36ff694-9e7d-c46e-7687-3856749d670f/source/200x200bb.png",
+        "copyright": "© Copyright 2017 S-Town Podcast and Brian Reed",
+        "genres": [
+          {
+            "genreId": "1302",
+            "name": "Personal Journals",
+            "url": "https://itunes.apple.com/us/genre/id1302"
+          },
+          {
+            "genreId": "26",
+            "name": "Podcasts",
+            "url": "https://itunes.apple.com/us/genre/id26"
+          },
+          {
+            "genreId": "1324",
+            "name": "Society & Culture",
+            "url": "https://itunes.apple.com/us/genre/id1324"
+          }
+        ],
+        "id": "1212558767",
+        "kind": "podcast",
+        "name": "S-Town",
+        "releaseDate": "2017-03-28",
+        "url": "https://itunes.apple.com/us/podcast/s-town/id1212558767?mt=2"
       }
     ]
   }

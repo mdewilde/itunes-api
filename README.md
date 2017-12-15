@@ -1,8 +1,8 @@
-# iTunes Search
+# iTunes API
 
 [![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/itunes-search/badge.svg)](https://mvnrepository.com/artifact/be.ceau/itunes-search)  [![Javadocs](https://javadoc.io/badge/be.ceau/itunes-search.svg)](https://javadoc.io/doc/be.ceau/itunes-search)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
-**iTunes Search** is a Java client library providing easy programmatic access to four different iTunes APIs.
+**iTunes API** is a Java client library providing easy programmatic access to four different iTunes APIs.
 
   * [Search API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#searching)
   * [Lookup API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#lookup)
@@ -16,10 +16,11 @@ Search for 15 podcasts with CBS Radio as author in the Canadian iTunes store:
 
 ```Java
 Response response = new Search("cbs radio")
-	.setCountry(Country.CANADA)
-	.setAttribute(Attribute.AUTHOR_TERM)		
-	.setLimit(15)
-	.execute();
+		.setCountry(Country.CANADA)
+		.setAttribute(Attribute.AUTHOR_TERM)
+		.setMedia(Media.PODCAST)
+		.setLimit(15)
+		.execute();
 ```
 _See also_ [Search API page on apple.com](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#searching)
 
@@ -76,12 +77,12 @@ _See also_ [Genre ID page on apple.com](https://affiliate.itunes.apple.com/resou
 
 ##### HTTP connection setup
 
-To reduce external dependencies, **iTunes Search** has a default HTTP implementation relying on `java.net.URLConnection`. However, using your preferred way to make HTTP requests can be done by implementing the `be.ceau.itunessearch.Connector` interface and passing an instance to the relevant API entry point:
+To reduce external dependencies, **iTunes Search** has a default HTTP implementation relying on `java.net.URLConnection`. However, using your preferred way to make HTTP requests can be done by implementing the `be.ceau.itunesapi.http.Connector` interface and passing an instance to the relevant API entry point:
 
-  * `be.ceau.itunessearch.Search.execute(Connector)`
-  * `be.ceau.itunessearch.Lookup.execute(Connector)`
-  * `be.ceau.itunessearch.FeedGenerator.execute(Connector)`
-  * `be.ceau.itunessearch.GenreIdsAppendix.execute(Connector)`
+  * `be.ceau.itunesapi.Search.execute(Connector)`
+  * `be.ceau.itunesapi.Lookup.execute(Connector)`
+  * `be.ceau.itunesapi.FeedGenerator.execute(Connector)`
+  * `be.ceau.itunesapi.GenreIdsAppendix.execute(Connector)`
 
 ### Requirements
 This library requires Java 7 or higher.
@@ -91,7 +92,7 @@ Include this project directly from Maven Central
 ```XML
 <dependency>
 	<groupId>be.ceau</groupId>
-	<artifactId>itunes-search</artifactId>
+	<artifactId>itunes-api</artifactId>
 	<version>${project.version}</version>
 </dependency>
 ```
@@ -100,7 +101,7 @@ Include this project directly from Maven Central
 Verify signature files with my [GnuPG public key](https://www.ceau.be/pubkey.gpg).
 
 ### Javadoc
-View javadoc for current release at [javadoc.io](https://javadoc.io/doc/be.ceau/itunes-search).
+View javadoc for current release at [javadoc.io](https://javadoc.io/doc/be.ceau/itunes-api).
 
 ### License
 Licensed under [the Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0.txt).

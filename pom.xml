@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>be.ceau</groupId>
-	<artifactId>itunes-search</artifactId>
-	<version>3.0</version>
+	<artifactId>itunes-api</artifactId>
+	<version>4.0</version>
 	<packaging>jar</packaging>
-	<name>iTunes Search</name>
-	<description>Java client for the iTunes Search API</description>
+	<name>iTunes API</name>
+	<description>Java client for the Apple iTunes APIs</description>
 	<url>https://github.com/mdewilde/itunes-search</url>
 	<developers>
 		<developer>
@@ -48,7 +48,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.9.2</version>
+			<version>2.9.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -99,7 +99,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.4</version>
+				<version>3.0.0</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -171,7 +171,7 @@
 				<configuration>
 					<skip>true</skip>
 				</configuration>
-				<version>3.0.1</version>
+				<version>3.0.2</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

@@ -1,0 +1,10 @@
+
+
+
+{
+ "resultCount":1,
+ "results": [
+{"wrapperType":"track", "kind":"podcast", "collectionId":124043755, "trackId":124043755, "artistName":"Seth Romatelli and Jonathan Larroquette", "collectionName":"Uhh Yeah Dude", "trackName":"Uhh Yeah Dude", "collectionCensoredName":"Uhh Yeah Dude", "trackCensoredName":"Uhh Yeah Dude", "collectionViewUrl":"https://itunes.apple.com/us/podcast/uhh-yeah-dude/id124043755?mt=2&uo=4", "feedUrl":"http://feeds.feedburner.com/uhhyeahdude/podcast", "trackViewUrl":"https://itunes.apple.com/us/podcast/uhh-yeah-dude/id124043755?mt=2&uo=4", "artworkUrl30":"http://is4.mzstatic.com/image/thumb/Music4/v4/34/69/a7/3469a700-7d00-12d2-f25a-6213cfdddfaa/source/30x30bb.jpg", "artworkUrl60":"http://is4.mzstatic.com/image/thumb/Music4/v4/34/69/a7/3469a700-7d00-12d2-f25a-6213cfdddfaa/source/60x60bb.jpg", "artworkUrl100":"http://is4.mzstatic.com/image/thumb/Music4/v4/34/69/a7/3469a700-7d00-12d2-f25a-6213cfdddfaa/source/100x100bb.jpg", "collectionPrice":0.00, "trackPrice":0.00, "trackRentalPrice":0, "collectionHdPrice":0, "trackHdPrice":0, "trackHdRentalPrice":0, "releaseDate":"2017-12-12T02:25:00Z", "collectionExplicitness":"explicit", "trackExplicitness":"explicit", "trackCount":200, "country":"USA", "currency":"USD", "primaryGenreName":"Comedy", "contentAdvisoryRating":"Explicit", "artworkUrl600":"http://is4.mzstatic.com/image/thumb/Music4/v4/34/69/a7/3469a700-7d00-12d2-f25a-6213cfdddfaa/source/600x600bb.jpg", "genreIds":["1303", "26", "1311", "1309"], "genres":["Comedy", "Podcasts", "News & Politics", "TV & Film"]}]
+}
+
+

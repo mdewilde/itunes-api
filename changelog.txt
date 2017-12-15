@@ -1,3 +1,8 @@
+4.0		2017-12
+* new artifact id to indicate that more than one API is supported
+* support changed feed generator format
+* cleaner package hierarchy
+
 3.0		2017-08
 * add implementation of RSS Feed Generator
 * add implementation of Genre IDs Appendix
