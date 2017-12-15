@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 	<name>iTunes API</name>
 	<description>Java client for the Apple iTunes APIs</description>
-	<url>https://github.com/mdewilde/itunes-search</url>
+	<url>https://github.com/mdewilde/itunes-api</url>
 	<developers>
 		<developer>
 			<name>Marceau Dewilde</name>
@@ -21,12 +21,12 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:git@github.com:mdewilde/itunes-search.git</connection>
-		<url>scm:git:git@github.com:mdewilde/itunes-search.git</url>
-		<developerConnection>scm:git:git@github.com:mdewilde/itunes-search.git</developerConnection>
+		<connection>scm:git:git@github.com:mdewilde/itunes-api.git</connection>
+		<url>scm:git:git@github.com:mdewilde/itunes-api.git</url>
+		<developerConnection>scm:git:git@github.com:mdewilde/itunes-api.git</developerConnection>
 	</scm>
 	<issueManagement>
-		<url>https://github.com/mdewilde/itunes-search/issues</url>
+		<url>https://github.com/mdewilde/itunes-api/issues</url>
 	</issueManagement>
 	<distributionManagement>
 		<snapshotRepository>

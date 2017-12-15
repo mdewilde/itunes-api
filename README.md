@@ -1,6 +1,6 @@
 # iTunes API
 
-[![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/itunes-search/badge.svg)](https://mvnrepository.com/artifact/be.ceau/itunes-search)  [![Javadocs](https://javadoc.io/badge/be.ceau/itunes-search.svg)](https://javadoc.io/doc/be.ceau/itunes-search)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/itunes-api/badge.svg)](https://mvnrepository.com/artifact/be.ceau/itunes-api)  [![Javadocs](https://javadoc.io/badge/be.ceau/itunes-api.svg)](https://javadoc.io/doc/be.ceau/itunes-api)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 **iTunes API** is a Java client library providing easy programmatic access to four different iTunes APIs.
 
@@ -77,7 +77,7 @@ _See also_ [Genre ID page on apple.com](https://affiliate.itunes.apple.com/resou
 
 ##### HTTP connection setup
 
-To reduce external dependencies, **iTunes Search** has a default HTTP implementation relying on `java.net.URLConnection`. However, using your preferred way to make HTTP requests can be done by implementing the `be.ceau.itunesapi.http.Connector` interface and passing an instance to the relevant API entry point:
+To reduce external dependencies, **iTunes API** has a default HTTP implementation relying on `java.net.URLConnection`. However, using your preferred way to make HTTP requests can be done by implementing the `be.ceau.itunesapi.http.Connector` interface and passing an instance to the relevant API entry point:
 
   * `be.ceau.itunesapi.Search.execute(Connector)`
   * `be.ceau.itunesapi.Lookup.execute(Connector)`
@@ -96,6 +96,8 @@ Include this project directly from Maven Central
 	<version>${project.version}</version>
 </dependency>
 ```
+### iTunes Search
+**iTunes API** is an evolution of the **iTunes Search** library. The new name **iTunes API** reflects the fact multiple APIs are implemented by the library.
 
 ### GnuPG public key
 Verify signature files with my [GnuPG public key](https://www.ceau.be/pubkey.gpg).
