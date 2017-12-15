@@ -16,11 +16,11 @@ Search for 15 podcasts with CBS Radio as author in the Canadian iTunes store:
 
 ```Java
 Response response = new Search("cbs radio")
-		.setCountry(Country.CANADA)
-		.setAttribute(Attribute.AUTHOR_TERM)
-		.setMedia(Media.PODCAST)
-		.setLimit(15)
-		.execute();
+	.setCountry(Country.CANADA)
+	.setAttribute(Attribute.AUTHOR_TERM)
+	.setMedia(Media.PODCAST)
+	.setLimit(15)
+	.execute();
 ```
 _See also_ [Search API page on apple.com](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#searching)
 
