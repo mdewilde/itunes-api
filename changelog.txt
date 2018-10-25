@@ -1,3 +1,6 @@
+4.1		2018-10
+* update jackson dependency to avoid security vulnerability
+
 4.0		2017-12
 * new artifact id to indicate that more than one API is supported
 * support changed feed generator format
