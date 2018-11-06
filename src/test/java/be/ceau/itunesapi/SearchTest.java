@@ -51,6 +51,17 @@ public class SearchTest {
 		Assert.assertNotNull(response.getResults());
 	}
 
+	@Test
+	public void searchSoftware() {
+		Response response = new Search("facebook")
+				.setCountry(Country.UNITED_STATES)
+				.setMedia(Media.SOFTWARE)
+				.execute();
+		Assert.assertNotNull(response);
+		Assert.assertTrue(response.getResultCount() > 0);
+		Assert.assertNotNull(response.getResults());
+	}
+
 	/**
 	 * A term must be set before searching
 	 */
