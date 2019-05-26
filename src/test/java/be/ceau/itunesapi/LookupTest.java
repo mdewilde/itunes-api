@@ -19,7 +19,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import be.ceau.itunesapi.Lookup;
+import be.ceau.itunesapi.request.Country;
 import be.ceau.itunesapi.request.Entity;
 import be.ceau.itunesapi.response.Response;
 
@@ -40,6 +40,7 @@ public class LookupTest {
 		Response response = new Lookup()
 			.addId("178834")
 			.setEntity(Entity.ALBUM)
+			.setCountry(Country.BELGIUM)
 			.execute();
 		Assert.assertTrue(response.getResultCount() > 0);
 		Assert.assertEquals(response.getResults().size(), response.getResultCount());

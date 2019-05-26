@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>be.ceau</groupId>
 	<artifactId>itunes-api</artifactId>
-	<version>4.2</version>
+	<version>4.3</version>
 	<packaging>jar</packaging>
 	<name>iTunes API</name>
 	<description>Java client for the Apple iTunes APIs</description>

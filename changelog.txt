@@ -1,3 +1,6 @@
+4.3		2019-05
+* add Country field to Lookup request
+
 4.2		2019-05
 * change field type Result#bundleId to String, as reported in issue #3. Thanks @MallorcaSoftware!
 * update Jackson lib to 2.9.9 for CVE
