@@ -37,7 +37,7 @@ public class Result implements Serializable {
 	private Long artistId;
 	private Long collectionId;
 	private Long trackId;
-	private Long bundleId;
+	private String bundleId;
 
 	private String artistName;
 	private String collectionName;
@@ -176,11 +176,11 @@ public class Result implements Serializable {
 		this.trackId = trackId;
 	}
 
-	public Long getBundleId() {
+	public String getBundleId() {
 		return bundleId;
 	}
 
-	public void setBundleId(Long bundleId) {
+	public void setBundleId(String bundleId) {
 		this.bundleId = bundleId;
 	}
 
