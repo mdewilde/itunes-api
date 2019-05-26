@@ -15,6 +15,7 @@
 */
 package be.ceau.itunesapi;
 
+import be.ceau.itunesapi.request.Country;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,6 +42,17 @@ public class LookupTest {
 			.addId("178834")
 			.setEntity(Entity.ALBUM)
 			.execute();
+		Assert.assertTrue(response.getResultCount() > 0);
+		Assert.assertEquals(response.getResults().size(), response.getResultCount());
+	}
+
+	@Test
+	public void albumsFromUSStore() {
+		Response response = new Lookup()
+				.addId("178834")
+				.setEntity(Entity.ALBUM)
+				.setCountry(Country.UNITED_STATES)
+				.execute();
 		Assert.assertTrue(response.getResultCount() > 0);
 		Assert.assertEquals(response.getResults().size(), response.getResultCount());
 	}

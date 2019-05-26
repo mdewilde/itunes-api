@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import be.ceau.itunesapi.request.Country;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,6 +61,7 @@ public class Lookup implements Serializable {
 	private Entity entity;
 	private int limit;
 	private Sort sort;
+	private Country country;
 
 	/**
 	 * No-arg constructor.
@@ -384,6 +386,23 @@ public class Lookup implements Serializable {
 	}
 
 	/**
+	 * @return {@link Country} instance, or {@code null}
+	 */
+	public Country getCountry() {
+		return country;
+	}
+
+	/**
+	 * @param country
+	 *            {@link Country}, can be {@code null}
+	 * @return {@code this} instance for method chaining
+	 */
+	public Lookup setCountry(Country country) {
+		this.country = country;
+		return this;
+	}
+
+	/**
 	 * Create the request url for this {@link Lookup}
 	 * 
 	 * @return full request url {@link String} matching this {@link Lookup}
@@ -420,6 +439,12 @@ public class Lookup implements Serializable {
 				sb.append("&");
 			}
 			sb.append("sort").append("=").append(sort.toString());
+		}
+		if (country != null) {
+			if (sb.length() > 0) {
+				sb.append("&");
+			}
+			sb.append("country").append("=").append(country.getIso());
 		}
 		return API_ENDPOINT + sb.toString();
 	}
