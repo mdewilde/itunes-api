@@ -1,3 +1,6 @@
+4.4		2019-07
+* dependency updates
+
 4.3		2019-05
 * add Country field to Lookup request
 
