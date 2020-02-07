@@ -1,5 +1,5 @@
 /*
-	Copyright 2019 Marceau Dewilde <m@ceau.be>
+	Copyright 2020 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -71,8 +71,7 @@ class LineReader {
 	public static String readFile(String file) {
 		StringBuilder sb = new StringBuilder();
 		for (String line : readLines(file)) {
-			sb.append(line);
-			sb.append(System.getProperty("line.separator"));
+			sb.append(line).append(System.lineSeparator());
 		}
 		return sb.toString();
 	}

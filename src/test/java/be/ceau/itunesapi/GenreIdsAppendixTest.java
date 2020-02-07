@@ -1,5 +1,5 @@
 /*
-	Copyright 2019 Marceau Dewilde <m@ceau.be>
+	Copyright 2020 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ public class GenreIdsAppendixTest {
 
 	@Before
 	public void setup() {
-		System.setProperty("org.slf4j.simpleLogger.defaultLogLevel", "trace");
+		System.setProperty("org.slf4j.simpleLogger.defaultLogLevel", "info");
 	}
 
 	@Test
