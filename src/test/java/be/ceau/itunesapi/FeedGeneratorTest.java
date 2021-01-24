@@ -1,5 +1,5 @@
 /*
-	Copyright 2020 Marceau Dewilde <m@ceau.be>
+	Copyright 2021 Marceau Dewilde <m@ceau.be>
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@ import org.junit.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 
-import be.ceau.itunesapi.FeedGenerator;
 import be.ceau.itunesapi.request.Country;
 import be.ceau.itunesapi.request.feedgenerator.FeedFormat;
 import be.ceau.itunesapi.request.feedgenerator.FeedType;
